@@ -8,7 +8,10 @@ const path = require('path');
 const app = express();
 
 // Conecto to Database
-require('./mongooseDatabase');
+require('./lib/connectMongooseDB');
+
+// Setup i18n
+const i18n = require('./lib/i18nConfigure');
 
 // Settings
 app.set('port', process.env.PORT || 4000);
@@ -19,6 +22,11 @@ app.set('view engine', 'html');
 app.engine('html', require('ejs').__express);
 
 // Middlewares
+app.use(i18n.init);
+
+// i18n.setLocale('es');
+console.log(i18n.__('Path'));
+
 app.use(morgan('dev'));
 
 // Form sends data, understand it, but not accept images etc...(Method of Express)

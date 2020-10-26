@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-Dark bg-Dark">
   <div class="container">
-    <a class="navbar-brand" href="/">NodePop Gallery</a>
+    <a class="navbar-brand" href="/">NodePop <%= __('Gallery') %></a>
     <button
       class="navbar-toggler"
       type="button"
@@ -15,7 +15,8 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="/api/ads"> View ads JSON </a>
+          <!-- Use i18n to translate -->
+          <a class="nav-link" href="/api/ads"> <%= __('View ads') %> JSON </a>
         </li>
         <!--
         <li class="nav-item active">
