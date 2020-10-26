@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('partials/header') %>
+  </head>
+  <body>
+    <%- include('partials/navigation') %>
+    <div class="container p-4">
+      <h1>NodePop</h1>
+      <!-- 
+        <%- include('partials/ul') %>
+      -->
+      <table id="tabel" border="1">
+        <tbody>
+          <tr class="center">
+            <td width="280"><h4>Adverts:</h4></td>
+            <td width="100"><h4>On Sale</h4></td>
+            <td width="80"><h4>Cost</h4></td>
+            <td width="280"><h4>_id:</h4></td>
+            <td width="440"><h4>Path</h4></td>
+          </tr>
+          <% adverts.forEach(advert => { %>
+          <tr>
+            <td><%= `${advert.name}` %></td>
+            <td class="center"><%= `${advert.onSale}` %></td>
+            <td class="center"><%= `${advert.cost}` %></td>
+            <td class="center"><%= `${advert._id}` %></td>
+            <td class="center"><%= `${advert.imagePath}` %></td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>

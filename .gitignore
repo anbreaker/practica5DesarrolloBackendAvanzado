@@ -1,0 +1,5 @@
+src/public/uploads/
+node_modules
+.env
+zPruebas.js
+package-lock.json

@@ -1,4 +1,4 @@
-<h1 align="center">Practica 3 Desarrollo Backend Node (API) KEEPCODING 👋</h1>
+<h1 align="center">Practica 5 Desarrollo Backend Avanzado Node (API) KEEPCODING 👋</h1>
 <p>
   <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" />
   <a href="https://github.com/anbreaker/practica3DesarrolloBackendNode#readme" target="_blank">
@@ -62,10 +62,6 @@ npm run start
 ## Api Documentation with Postman
 
 - Postman API DOCs: - https://documenter.getpostman.com/view/12623471/TVCjvk79
-
-## To see an example on youtube (click on the image)
-
-[![](https://raw.githubusercontent.com/anbreaker/practica3DesarrolloBackendNode/master/src/public/d1d50271-4b0a-4909-8a9f-b5ad48998d38.png)](https://www.youtube.com/watch?v=Yyr5W96fnrs&feature=youtu.be")
 
 ## Author
 
