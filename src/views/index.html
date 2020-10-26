@@ -8,30 +8,32 @@
       <%- include('partials/navigation') %>
       <h1>NodePop</h1>
       <!-- < %- include('partials/ul') %> -->
-      <table id="tabel" border="1">
-        <tbody>
-          <tr class="center table-info">
-            <td width="280"><h4><%= __('Adverts') %></h4></td>
-            <td width="100"><h4><%= __('On Sale') %></h4></td>
-            <td width="80"><h4><%= __('Cost') %></h4></td>
-            <td width="280"><h4><%= __('_id') %>:</h4></td>
-            <td width="440"><h4><%= __('Path') %></h4></td>
-          </tr>
-          <% adverts.forEach(advert => { %>
-          <tr class="table-warning">
-            <td><%= `${advert.name}` %></td>
-            <td class="center">
-              <% if(advert.onSale === true){ %> <%= __('true') %> <% } %>
-              <!-- else -->
-              <% if(advert.onSale === false){ %> <%= __('false') %> <% } %>
-            </td>
-            <td class="center"><%= `${advert.cost}` %></td>
-            <td class="center"><%= `${advert._id}` %></td>
-            <td class="center"><%= `${advert.imagePath}` %></td>
-          </tr>
-          <% }) %>
-        </tbody>
-      </table>
+      <div class="jumbotron">
+        <table id="tabel" border="1">
+          <tbody>
+            <tr class="center table-info">
+              <td width="280"><h4><%= __('Adverts') %></h4></td>
+              <td width="100"><h4><%= __('On Sale') %></h4></td>
+              <td width="80"><h4><%= __('Cost') %></h4></td>
+              <td width="280"><h4><%= __('_id') %>:</h4></td>
+              <td width="440"><h4><%= __('Path') %></h4></td>
+            </tr>
+            <% adverts.forEach(advert => { %>
+            <tr class="table-warning">
+              <td><%= `${advert.name}` %></td>
+              <td class="center">
+                <% if(advert.onSale === true){ %> <%= __('true') %> <% } %>
+                <!-- else -->
+                <% if(advert.onSale === false){ %> <%= __('false') %> <% } %>
+              </td>
+              <td class="center"><%= `${advert.cost}` %></td>
+              <td class="center"><%= `${advert._id}` %></td>
+              <td class="center"><%= `${advert.imagePath}` %></td>
+            </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
     </div>
 
     <!-- Footer -->

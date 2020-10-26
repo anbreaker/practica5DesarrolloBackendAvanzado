@@ -41,6 +41,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Website Routes on './routes/routes.js'
 app.use('/', require('./routes/routes'));
 
+app.use('/login', require('./routes/login'));
+
 // API's Routes './routes/api/routes.adverts';
 app.use('/api/ads', require('./routes/api/ads'));
 

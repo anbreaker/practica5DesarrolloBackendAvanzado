@@ -18,7 +18,11 @@
 	"Author: Francisco Javier Antúnez Durán aka anbreaker": "Autor: Francisco Javier Antúnez Durán aka anbreaker",
 	"Go to Github Project": "Repositorio del proyecto en Github",
 	"Practice 5": "Práctica 5",
-	"Home": "Web",
 	"Log In": "Inicar Sesión",
-	"Sign Up": "Regístrate"
+	"Sign Up": "Regístrate",
+	"Go to user API": "Ir a la API del usuario",
+	"Password": "Contraseña",
+	"Home": "Home",
+	"En": "In",
+	"Sp": "Es"
 }

@@ -12,25 +12,31 @@
     >
       Menu
     </button>
+
+    <% getLocales().forEach(locale => { %>
+    <a href="/change-locale/" <%="locale" %>
+      > <% if(locale === 'en'){ %> <a href=""> <%= __('En') %> 🇬🇧 </a> <% } %>
+      <!-- else -->
+      <% if(locale === 'en'){ %> <a href=""> <%= __('Sp') %> 🇪🇸 </a> <% } %>
+    </a>
+    <% }) %>
+
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
       <a class="dropdown-item" href="/"><%= __('Home') %></a>
-      <a class="dropdown-item" href="/login.html"><%= __('Log In') %></a>
-      <a class="dropdown-item" href="/signup.html"><%= __('Sign Up') %></a>
+      <a class="dropdown-item" href="/login"><%= __('Log In') %></a>
+      <a class="dropdown-item" href="/signup"><%= __('Sign Up') %></a>
     </div>
   </div>
 
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav ml-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="/"><%= __('Home') %><span class="sr-only"></span></a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="/login.html"
+        <a class="nav-link" href="/login"
           ><%= __('Log In') %><span class="sr-only"></span
         ></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/signup.html"><%= __('Sign Up') %></a>
+        <a class="nav-link" href="/signup"><%= __('Sign Up') %></a>
       </li>
     </ul>
   </div>
