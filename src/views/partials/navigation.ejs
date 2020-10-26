@@ -13,13 +13,11 @@
       Menu
     </button>
 
-    <% getLocales().forEach(locale => { %>
-    <a href="/change-locale/" <%="locale" %>
-      > <% if(locale === 'en'){ %> <a href=""> <%= __('En') %> 🇬🇧 </a> <% } %>
-      <!-- else -->
-      <% if(locale === 'en'){ %> <a href=""> <%= __('Sp') %> 🇪🇸 </a> <% } %>
-    </a>
-    <% }) %>
+    <% getLocales().forEach( locale => { %> <% if(locale === 'en'){ %>
+    <a href="/change-locale/<%= locale %>"> <%= __('En') %> 🇬🇧 </a> <% } %>
+    <!-- else -->
+    <% if(locale === 'es'){ %>
+    <a href="/change-locale/<%= locale %>"> <%= __('Sp') %> 🇪🇸 </a> <% } %> <% }) %>
 
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
       <a class="dropdown-item" href="/"><%= __('Home') %></a>

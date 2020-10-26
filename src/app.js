@@ -3,6 +3,7 @@
 const express = require('express');
 const morgan = require('morgan');
 const path = require('path');
+const cookieParser = require('cookie-parser');
 
 // Initializations
 const app = express();
@@ -22,6 +23,10 @@ app.set('view engine', 'html');
 app.engine('html', require('ejs').__express);
 
 // Middlewares
+// CookieParser
+app.use(cookieParser());
+
+// Middlewares i18n
 app.use(i18n.init);
 
 // i18n.setLocale('es');
@@ -42,14 +47,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', require('./routes/routes'));
 
 app.use('/login', require('./routes/login'));
+app.use('/change-locale', require('./routes/change-locale'));
 
 // API's Routes './routes/api/routes.adverts';
 app.use('/api/ads', require('./routes/api/ads'));
 
-// 404 Handler Error
-// app.use((req, res, next) => {
-//   res.status(404).send('404 Not Found');
-// });
 app.use(require('./lib/handlerError').notFound);
 app.use(require('./lib/handlerError').InternalServerError);
 

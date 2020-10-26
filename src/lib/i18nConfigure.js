@@ -9,6 +9,7 @@ i18n.configure({
   defaultLocale: 'en',
   autoReload: true,
   syncFiles: true, // Create literals in all languages
+  cookie: 'nodeapi-locale',
 });
 
 // Use i18n on script
