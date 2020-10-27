@@ -24,5 +24,6 @@
 	"Password": "Contraseña",
 	"Home": "Home",
 	"En": "In",
-	"Sp": "Es"
+	"Sp": "Es",
+	"Invalid Credentials": "Invalid Credentials"
 }

@@ -4,6 +4,7 @@ const express = require('express');
 const morgan = require('morgan');
 const path = require('path');
 const cookieParser = require('cookie-parser');
+const loginController = require('./routes/loginController');
 
 // Initializations
 const app = express();
@@ -45,9 +46,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Website Routes on './routes/routes.js'
 app.use('/', require('./routes/routes'));
-
-app.use('/login', require('./routes/login'));
 app.use('/change-locale', require('./routes/change-locale'));
+
+// Controller structure
+app.get('/login', loginController.getLogin);
+app.post('/login', loginController.logintPost);
 
 // API's Routes './routes/api/routes.adverts';
 app.use('/api/ads', require('./routes/api/ads'));

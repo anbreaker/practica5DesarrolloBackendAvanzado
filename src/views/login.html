@@ -17,7 +17,7 @@
             <div class="card-body">
               <!-- Form -->
 
-              <form id="form-login" action="">
+              <form id="form-login" method="POST">
                 <legend><%= __('Go to user API') %>:</legend>
                 <div class="form-group">
                   <div class="form-check">
@@ -25,9 +25,10 @@
                 <div class="form-group">
                   <input
                     type="email"
-                    name="name"
+                    name="email"
                     class="form-control form-input"
                     placeholder="email@mail.com"
+                    value="<%= email %> "
                     required
                   />
                 </div>
@@ -47,7 +48,7 @@
                 </button>
               </form>
 
-              <div id="sms"></div>
+              <div class="text-danger"><%= error %>  </div>
             </div>
           </div>
         </div>
