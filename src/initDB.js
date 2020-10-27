@@ -3,8 +3,9 @@
 require('dotenv').config();
 
 const readline = require('readline');
-const conn = require('./mongooseDatabase');
+const conn = require('./lib/connectMongooseDB');
 const Advert = require('./models/Advert');
+const User = require('./models/User');
 const fs = require('fs-extra'); //fs with Promise implement
 
 const jsonAdverts = fs.readFileSync('src/db.json', 'utf-8');
@@ -20,7 +21,9 @@ conn.once('open', async () => {
     }
 
     await initAdverts();
+    await initUsers();
 
+    // Close connection
     conn.close();
   } catch (error) {
     console.log('Error :$', error);
@@ -37,6 +40,17 @@ async function initAdverts() {
   console.log('Loads initial Database Adverts.');
   const result = await Advert.insertMany(ads);
   console.log(`\tAds created ${result.length}.`);
+}
+
+async function initUsers() {
+  // Delet database
+  console.log('Delete all Users');
+  await User.deleteMany();
+
+  // Init Documents
+  console.log('Loads initial Database Users.');
+  const result = await User.insertMany([{email: 'user@user.com', password: 123}]);
+  console.log(`\tUsers created ${result.length}.`);
 }
 
 const askUser = (ask) => {

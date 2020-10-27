@@ -26,7 +26,7 @@ app.engine('html', require('ejs').__express);
 // CookieParser
 app.use(cookieParser());
 
-// Middlewares i18n
+// Middlewares i18n, initialize after cookieParser()
 app.use(i18n.init);
 
 // i18n.setLocale('es');
