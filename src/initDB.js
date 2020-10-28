@@ -49,7 +49,9 @@ async function initUsers() {
 
   // Init Documents
   console.log('Loads initial Database Users.');
-  const result = await User.insertMany([{email: 'user@user.com', password: 123}]);
+  const result = await User.insertMany([
+    {email: 'user@user.com', password: await User.hashPassword('123')},
+  ]);
   console.log(`\tUsers created ${result.length}.`);
 }
 

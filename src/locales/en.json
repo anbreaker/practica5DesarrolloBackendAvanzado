@@ -26,5 +26,12 @@
 	"Home": "Home",
 	"En": "En",
 	"Sp": "Sp",
-	"Invalid Credentials": "Invalid Credentials"
+	"Invalid Credentials": "Invalid Credentials",
+	"Hello, world!": "Hello, world!",
+	"Go to Log In!": "Go to Log In!",
+	"It is practice number 5 of the Keepcoding Full Stack Web bootcamp": "It is practice number 5 of the Keepcoding Full Stack Web bootcamp",
+	"This is a exercise to use API, Multilanguaje, Cookies, on backend": "This is a exercise to use API, Multilanguaje, Cookies, on backend",
+	" with javascript.": " with javascript.",
+	"In this exercise we created an API, Multilanguaje, Cookies, on": "In this exercise we created an API, Multilanguaje, Cookies, on",
+	" backend with javascript.": " backend with javascript."
 }

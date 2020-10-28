@@ -9,8 +9,7 @@ class PrivateController {
   async getPrivate(req, res, next) {
     try {
       const adverts = await Advert.find();
-      res.render('index', {adverts});
-      // res.json(adverts);
+      res.render('nodepop-private', {adverts});
     } catch (error) {
       next(error);
     }

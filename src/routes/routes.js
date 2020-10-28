@@ -2,7 +2,6 @@
 
 const {Router} = require('express');
 const router = Router();
-
 const Advert = require('../models/Advert');
 
 router.get('/', async (req, res, next) => {

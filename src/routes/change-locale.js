@@ -7,7 +7,7 @@ router.get('/:locale', (req, res, next) => {
 
   const backTo = req.get('referer');
 
-  res.cookie('nodeapi-locale', locale, {maxAge: 1000 * 60});
+  res.cookie('nodeapi-locale', locale, {maxAge: 1000 * 60 * 24 * 2});
 
   console.log(backTo, '\n ver algo!');
 

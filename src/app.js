@@ -54,7 +54,7 @@ app.get('/login', loginController.getLogin);
 app.post('/login', loginController.logintPost);
 
 // Private zone
-app.get('/private', privateController.getPrivate);
+app.get('/nodepop-private', privateController.getPrivate);
 
 // API's Routes './routes/api/routes.adverts';
 app.use('/api/ads', require('./routes/api/ads'));
