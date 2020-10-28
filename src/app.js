@@ -5,6 +5,7 @@ const morgan = require('morgan');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const loginController = require('./routes/loginController');
+const privateController = require('./routes/privateController');
 
 // Initializations
 const app = express();
@@ -51,6 +52,9 @@ app.use('/change-locale', require('./routes/change-locale'));
 // Controller structure
 app.get('/login', loginController.getLogin);
 app.post('/login', loginController.logintPost);
+
+// Private zone
+app.get('/private', privateController.getPrivate);
 
 // API's Routes './routes/api/routes.adverts';
 app.use('/api/ads', require('./routes/api/ads'));
