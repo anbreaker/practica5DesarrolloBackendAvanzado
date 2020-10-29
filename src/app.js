@@ -3,9 +3,13 @@
 const express = require('express');
 const morgan = require('morgan');
 const path = require('path');
+const session = require('express-session');
 const cookieParser = require('cookie-parser');
+
 const loginController = require('./routes/loginController');
 const privateController = require('./routes/privateController');
+const sessionAuthMiddleware = require('./lib/sessionAuthMiddleware');
+const sessionConfigure = require('./lib/sessionObjectConfigure');
 
 // Initializations
 const app = express();
@@ -24,7 +28,9 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'html');
 app.engine('html', require('ejs').__express);
 
-// Middlewares
+/**
+ * Middlewares
+ */
 // CookieParser
 app.use(cookieParser());
 
@@ -32,7 +38,7 @@ app.use(cookieParser());
 app.use(i18n.init);
 
 // i18n.setLocale('es');
-console.log(i18n.__('Path'));
+// console.log(i18n.__('Path'));
 
 app.use(morgan('dev'));
 
@@ -45,7 +51,18 @@ app.use(express.json());
 // Static files
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Website Routes on './routes/routes.js'
+/**
+ * API's Routes './routes/api/routes.adverts';
+ */
+app.use('/api/ads', require('./routes/api/ads'));
+
+/**
+ *  Website Routes on './routes/routes.js'
+ */
+
+// Initialized sessions with express-session
+app.use(session(sessionConfigure));
+
 app.use('/', require('./routes/routes'));
 app.use('/change-locale', require('./routes/change-locale'));
 
@@ -54,10 +71,7 @@ app.get('/login', loginController.getLogin);
 app.post('/login', loginController.logintPost);
 
 // Private zone
-app.get('/nodepop-private', privateController.getPrivate);
-
-// API's Routes './routes/api/routes.adverts';
-app.use('/api/ads', require('./routes/api/ads'));
+app.get('/nodepop-private', sessionAuthMiddleware(), privateController.getPrivate);
 
 app.use(require('./lib/handlerError').notFound);
 app.use(require('./lib/handlerError').InternalServerError);

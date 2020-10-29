@@ -30,12 +30,18 @@ class LoginController {
         res.render('login');
         return;
       }
+
+      // load _id in user session
+      req.session.authUser = {
+        _id: user._id,
+        // rol:...
+      };
+
+      // If there is a user and correct pass, redirect to private area.
+      res.redirect('nodepop-private');
     } catch (error) {
       next(error);
     }
-    // If there is a user and correct pass, redirect to private area.
-
-    res.redirect('nodepop-private');
   }
 }
 
