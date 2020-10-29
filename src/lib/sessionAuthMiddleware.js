@@ -7,7 +7,6 @@ module.exports = (options) => {
       res.redirect('/login');
       return;
     }
-
     next();
   };
 };

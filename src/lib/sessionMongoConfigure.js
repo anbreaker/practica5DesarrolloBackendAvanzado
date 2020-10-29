@@ -3,7 +3,7 @@
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 
-// exporto una función que ejecuta el constructor del middleware de sesiones
+// Export function that is execute on constructor of middleware sessions
 module.exports = (mongoConnection) => {
   return session({
     name: 'nodeapi-session',
@@ -20,5 +20,3 @@ module.exports = (mongoConnection) => {
     }),
   });
 };
-
-// 2.33
