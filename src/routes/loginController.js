@@ -1,6 +1,7 @@
 'use strict';
 const User = require('../models/User');
 const bcrypt = require('bcrypt');
+const session = require('express-session');
 
 class LoginController {
   /**
@@ -42,6 +43,19 @@ class LoginController {
     } catch (error) {
       next(error);
     }
+  }
+
+  /**
+   * Get /logout
+   */
+  logoutSession(req, res, next) {
+    req.session.destroy((error) => {
+      if (error) {
+        next(error);
+        return;
+      }
+      res.redirect('/');
+    });
   }
 }
 

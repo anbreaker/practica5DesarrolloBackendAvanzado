@@ -22,20 +22,26 @@
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
       <a class="dropdown-item" href="/"><%= __('Home') %></a>
       <a class="dropdown-item" href="/login"><%= __('Log In') %></a>
-      <a class="dropdown-item" href="/signup"><%= __('Sign Up') %></a>
+      <a class="dropdown-item" href="Logout"><%= __('Log Out') %></a>
     </div>
   </div>
 
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav ml-auto">
-      <li class="nav-item active">
+      <% if (!session.authUser) { %>
+      <li class="nav-item">
         <a class="nav-link" href="/login"
           ><%= __('Log In') %><span class="sr-only"></span
         ></a>
       </li>
+      <% } %> <% if (session.authUser) { %>
       <li class="nav-item">
-        <a class="nav-link" href="/signup"><%= __('Sign Up') %></a>
+        <a class="nav-link" href="nodepop-private"><%= __('User Session') %></a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="Logout"><%= __('Log Out') %></a>
+      </li>
+      <% } %>
     </ul>
   </div>
 </nav>

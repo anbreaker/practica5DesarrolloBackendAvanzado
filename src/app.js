@@ -63,12 +63,19 @@ app.use('/api/ads', require('./routes/api/ads'));
 // Initialized sessions with express-session
 app.use(session(sessionConfigure));
 
+// Object session available in the Views
+app.use((req, res, next) => {
+  res.locals.session = req.session;
+  next();
+});
+
 app.use('/', require('./routes/routes'));
 app.use('/change-locale', require('./routes/change-locale'));
 
 // Controller structure
 app.get('/login', loginController.getLogin);
 app.post('/login', loginController.logintPost);
+app.get('/logout', loginController.logoutSession);
 
 // Private zone
 app.get('/nodepop-private', sessionAuthMiddleware(), privateController.getPrivate);
