@@ -5,7 +5,7 @@ const mongooseConnection = require('./connectMongooseDB');
 
 const session = {
   name: 'nodeapi-session',
-  secret: 'wia%WF0-IjoxNT/E2M',
+  secret: process.env.SESSION_SECRET,
   saveUninitialized: true,
   resave: false,
   cookie: {
