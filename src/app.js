@@ -3,19 +3,18 @@
 const express = require('express');
 const morgan = require('morgan');
 const path = require('path');
-const session = require('express-session');
 const cookieParser = require('cookie-parser');
 
 const loginController = require('./routes/loginController');
 const privateController = require('./routes/privateController');
 const sessionAuthMiddleware = require('./lib/sessionAuthMiddleware');
-const sessionConfigure = require('./lib/sessionObjectConfigure');
+const sessionMongoConfigure = require('./lib/sessionMongoConfigure');
 
 // Initializations
 const app = express();
 
 // Conecto to Database
-require('./lib/connectMongooseDB');
+const mongoConnection = require('./lib/connectMongooseDB');
 
 // Setup i18n
 const i18n = require('./lib/i18nConfigure');
@@ -61,7 +60,7 @@ app.use('/api/ads', require('./routes/api/ads'));
  */
 
 // Initialized sessions with express-session
-app.use(session(sessionConfigure));
+app.use(sessionMongoConfigure(mongoConnection));
 
 // Object session available in the Views
 app.use((req, res, next) => {
