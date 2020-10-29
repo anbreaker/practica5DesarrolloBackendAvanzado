@@ -1,6 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="/"><%= __('Practice 5') %></a>
-
   <div class="dropdown">
     <button
       class="btn btn-secondary dropdown-toggle"
@@ -21,8 +20,12 @@
 
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
       <a class="dropdown-item" href="/"><%= __('Home') %></a>
+      <% if (!session.authUser) { %>
       <a class="dropdown-item" href="/login"><%= __('Log In') %></a>
+      <% } %> <% if (session.authUser) { %>
+      <a class="dropdown-item" href="nodepop-private"><%= __('User Session') %></a>
       <a class="dropdown-item" href="Logout"><%= __('Log Out') %></a>
+      <% } %>
     </div>
   </div>
 
