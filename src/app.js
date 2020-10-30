@@ -66,8 +66,6 @@ app.use(sessionMongoConfigure(mongoConnection));
 app.use((req, res, next) => {
   res.locals.session = req.session;
 
-  console.log(res.locals.session, '<--ver sesion...');
-
   next();
 });
 

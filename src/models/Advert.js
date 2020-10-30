@@ -39,6 +39,16 @@ advertSchema.statics.list = function (filter, limit, skip, sort, select) {
   return query.exec();
 };
 
+advertSchema.methods.notOnSale = function () {
+  this.onSale = false;
+  return this.save();
+};
+
+advertSchema.methods.yesOnSale = function () {
+  this.onSale = true;
+  return this.save();
+};
+
 const Advert = model('Advert', advertSchema);
 
 module.exports = Advert;

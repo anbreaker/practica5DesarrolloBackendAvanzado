@@ -4,6 +4,7 @@ const {Router} = require('express');
 const router = Router();
 const multerMiddlewareUploads = require('../../lib/multerMiddleware');
 const Advert = require('../../models/Advert');
+const filterCost = require('../../lib/filterCost');
 
 router.get('/', async (req, res, next) => {
   try {
@@ -83,17 +84,28 @@ router.patch('/:id', async (req, res, next) => {
   }
 });
 
-const filterCost = (param) => {
-  const splittedCost = param.split('-');
+router.post('/:id/notOnSale', async (req, res, next) => {
+  try {
+    const id = req.params.id;
+    const advert = await Advert.findOne({_id: id});
+    const advertnotOnSale = await advert.notOnSale();
 
-  if (splittedCost.length === 2) {
-    if (splittedCost[0] !== '' && splittedCost[1] !== '')
-      return {$gte: splittedCost[0], $lte: splittedCost[1]};
-    if (splittedCost[0] !== '' && splittedCost[1] === '') return {$gte: splittedCost[0]};
-    if (splittedCost[0] === '' && splittedCost[1] !== '') return {$lte: splittedCost[1]};
-  } else {
-    return splittedCost;
+    res.json(advertnotOnSale);
+  } catch (error) {
+    next(error);
   }
-};
+});
+
+router.post('/:id/yesOnSale', async (req, res, next) => {
+  try {
+    const id = req.params.id;
+    const advert = await Advert.findOne({_id: id});
+    const advertyesOnSale = await advert.yesOnSale();
+
+    res.json(advertyesOnSale);
+  } catch (error) {
+    next(error);
+  }
+});
 
 module.exports = router;
