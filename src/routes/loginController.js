@@ -34,7 +34,7 @@ class LoginController {
       // load _id in user session
       req.session.authUser = {
         _id: user._id,
-        //email: user.email,
+        email: user.email,
         // rol:...
       };
 
