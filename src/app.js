@@ -65,7 +65,6 @@ app.use(sessionMongoConfigure(mongoConnection));
 // Object session available in the Views
 app.use((req, res, next) => {
   res.locals.session = req.session;
-
   next();
 });
 
