@@ -1,7 +1,7 @@
 'use strict';
 const User = require('../models/User');
-const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const bcrypt = require('bcrypt');
 
 class LoginController {
   /**
@@ -19,15 +19,18 @@ class LoginController {
   async createUser(req, res, next) {
     try {
       const {email, password} = req.body;
+
       const addUser = new User({
         email,
         password,
       });
 
-      // No run this!!!!!!!!
-      addUser.password = await User.encryptPassword(password);
-
+      await addUser.encryptPassword();
       await addUser.save();
+      const ver = await User.encryptPassword(password);
+
+      // console.log(req.body);
+      console.log(ver, addUser);
 
       const token = jwt.sign({id: addUser._id}, process.env.JWT_SECRET, {
         expiresIn: 60 * 60 * 24, //Time seconds

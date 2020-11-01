@@ -8,9 +8,14 @@ const userSchema = new Schema({
   password: String,
 });
 
-userSchema.statics.encryptPassword = async (password) => {
+userSchema.methods.encryptPassword = async function () {
   const salt = await bcrypt.genSalt(10);
-  await bcrypt.hash(password, salt);
+  this.password = await bcrypt.hash(this.password, salt);
+};
+
+userSchema.statics.encryptPassword = async function (password) {
+  const salt = await bcrypt.genSalt(10);
+  return bcrypt.hash(password, salt);
 };
 
 userSchema.methods.validatePassword = function (password) {
