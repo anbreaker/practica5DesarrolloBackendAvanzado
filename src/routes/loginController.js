@@ -14,24 +14,29 @@ class LoginController {
   }
 
   /**
-   * Post Create User /api/signup
+   * Post Create UserApi /api/signup
    */
   async createUser(req, res, next) {
-    const {email, password} = req.body;
-    const addUser = new User({
-      email,
-      password,
-    });
+    try {
+      const {email, password} = req.body;
+      const addUser = new User({
+        email,
+        password,
+      });
 
-    addUser.password = await addUser.encryptPassword(password);
-    await addUser.save();
+      // No run this!!!!!!!!
+      addUser.password = await User.encryptPassword(password);
 
-    const token = jwt.sign({id: addUser._id}, process.env.JWT_SECRET, {
-      expiresIn: 60 * 60 * 24, //Time seconds
-    });
+      await addUser.save();
 
-    res.json({auth: true, token});
-    next(error);
+      const token = jwt.sign({id: addUser._id}, process.env.JWT_SECRET, {
+        expiresIn: 60 * 60 * 24, //Time seconds
+      });
+
+      res.json({auth: true, token});
+    } catch (error) {
+      next(error);
+    }
   }
 
   /**
