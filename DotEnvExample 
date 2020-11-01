@@ -2,3 +2,4 @@ MONGODB_URI=mongodb://localhost/advertsDB
 PORT=3000
 NODE_ENV=production
 SESSION_SECRET=useRandomPass
+JWT_SECRET=useRandomPass

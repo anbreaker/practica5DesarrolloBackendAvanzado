@@ -8,9 +8,13 @@ const userSchema = new Schema({
   password: String,
 });
 
-// bcrypt pass
-userSchema.statics.hashPassword = (pass) => {
-  return bcrypt.hash(pass, 10);
+userSchema.methods.encryptPassword = async (password) => {
+  const salt = await bcrypt.genSalt(10);
+  return bcrypt.hash(password, salt);
+};
+
+userSchema.methods.validatePassword = function (password) {
+  return bcrypt.compare(password, this.password);
 };
 
 const User = model('User', userSchema);
