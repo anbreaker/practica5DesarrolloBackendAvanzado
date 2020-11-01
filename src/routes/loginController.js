@@ -56,9 +56,9 @@ class LoginController {
       // Search user in the database
       const user = await User.findOne({email});
       // if there is no user or incorrect password, error
-      if (!user) return res.status(404).send({message: 'This user does not exists'});
+      if (!user) return res.status(404).json({message: 'This user does not exists'});
 
-      const validPassword = await user.validPassword(password);
+      const validPassword = await user.validatePassword(password);
       if (!validPassword) return res.status(401).json({auth: false, token: null});
 
       const tokenJWT = jwt.sign(

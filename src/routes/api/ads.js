@@ -8,6 +8,8 @@ const filterCost = require('../../lib/filterCost');
 
 router.get('/', async (req, res, next) => {
   try {
+    console.log(`\nThe user of this session has the id: ${req.userId}\n`);
+
     const filter = {};
     // if (req.query.name) filter.name = req.query.name;
     if (req.query.name) filter.name = {$regex: '^' + `${req.query.name}`};

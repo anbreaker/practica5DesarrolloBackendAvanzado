@@ -9,6 +9,7 @@ const loginController = require('./routes/loginController');
 const privateController = require('./routes/privateController');
 const sessionAuthMiddleware = require('./lib/sessionAuthMiddleware');
 const sessionMongoConfigure = require('./lib/sessionMongoConfigure');
+const jwtAuthVerifyToken = require('./lib/jwtAuthVerifyToken');
 
 // Initializations
 const app = express();
@@ -54,7 +55,7 @@ app.use(express.static(path.join(__dirname, 'public')));
  * API's Routes './routes/api/routes.adverts';
  */
 app.post('/api/loginJWT', loginController.postJWT);
-app.use('/api/ads', require('./routes/api/ads'));
+app.use('/api/ads', jwtAuthVerifyToken(), require('./routes/api/ads'));
 
 /**
  *  Website Routes on './routes/routes.js'
