@@ -14,6 +14,27 @@ class LoginController {
   }
 
   /**
+   * Post Create User /api/signup
+   */
+  async createUser(req, res, next) {
+    const {email, password} = req.body;
+    const addUser = new User({
+      email,
+      password,
+    });
+
+    addUser.password = await addUser.encryptPassword(password);
+    await addUser.save();
+
+    const token = jwt.sign({id: addUser._id}, process.env.JWT_SECRET, {
+      expiresIn: 60 * 60 * 24, //Time seconds
+    });
+
+    res.json({auth: true, token});
+    next(error);
+  }
+
+  /**
    * Post /login
    */
   async logintPost(req, res, next) {

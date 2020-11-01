@@ -55,6 +55,7 @@ app.use(express.static(path.join(__dirname, 'public')));
  * API's Routes './routes/api/routes.adverts';
  */
 app.post('/api/loginJWT', loginController.postJWT);
+app.post('/api/signup', loginController.createUser);
 app.use('/api/ads', jwtAuthVerifyToken(), require('./routes/api/ads'));
 
 /**

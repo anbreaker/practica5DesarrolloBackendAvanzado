@@ -8,6 +8,14 @@ const userSchema = new Schema({
   password: String,
 });
 
+// userSchema.methods.encryptPassword = async (password) => {
+//   const salt = await bcrypt.genSalt(10);
+//   const pass = await bcrypt.hash(password, salt, (error, hash) => {
+//     if (error) return;
+//     return pass;
+//   });
+// };
+
 userSchema.methods.encryptPassword = async (password) => {
   const salt = await bcrypt.genSalt(10);
   return bcrypt.hash(password, salt);
