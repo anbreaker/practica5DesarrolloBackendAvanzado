@@ -58,19 +58,6 @@ class loginControllerPostman {
     });
     res.json({auth: true, token});
   }
-
-  /**
-   * Get /logout
-   */
-  logoutSession(req, res, next) {
-    req.session.destroy((error) => {
-      if (error) {
-        next(error);
-        return;
-      }
-      res.redirect('/');
-    });
-  }
 }
 
 module.exports = new loginControllerPostman();
