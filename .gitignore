@@ -1,7 +1,11 @@
 src/public/uploads/
-node_modules
-.env
-zPruebas.js
+src/public/thumbnail/*.jpeg
+src/public/thumbnail/*.jpg
+src/public/thumbnail/*.png
+src/public/thumbnail/*.gif
+
 package-lock.json
+node_modules
+
+.env
 .vscode
-a.txt
