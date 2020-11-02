@@ -5,7 +5,8 @@ const morgan = require('morgan');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 
-const loginController = require('./routes/loginController');
+const loginControllerWeb = require('./routes/loginControllerWeb');
+const loginControllerPostman = require('./routes/loginControllerPostman');
 const privateController = require('./routes/privateController');
 const sessionAuthMiddleware = require('./lib/sessionAuthMiddleware');
 const sessionMongoConfigure = require('./lib/sessionMongoConfigure');
@@ -14,7 +15,7 @@ const jwtAuthVerifyToken = require('./lib/jwtAuthVerifyToken');
 // Initializations
 const app = express();
 
-// Conecto to Database
+// Connect to Database
 const mongoConnection = require('./lib/connectMongooseDB');
 
 // Setup i18n
@@ -37,9 +38,7 @@ app.use(cookieParser());
 // Middlewares i18n, initialize after cookieParser()
 app.use(i18n.init);
 
-// i18n.setLocale('es');
-// console.log(i18n.__('Path'));
-
+// Sms control flow http
 app.use(morgan('dev'));
 
 // Form sends data, understand it, but not accept images etc...(Method of Express)
@@ -51,17 +50,6 @@ app.use(express.json());
 // Static files
 app.use(express.static(path.join(__dirname, 'public')));
 
-/**
- * API's Routes './routes/api/routes.adverts';
- */
-app.post('/api/loginJWT', loginController.postJWT);
-app.post('/api/signup', loginController.createUser);
-app.use('/api/ads', jwtAuthVerifyToken(), require('./routes/api/ads'));
-
-/**
- *  Website Routes on './routes/routes.js'
- */
-
 // Initialized sessions with express-session
 app.use(sessionMongoConfigure(mongoConnection));
 
@@ -71,13 +59,32 @@ app.use((req, res, next) => {
   next();
 });
 
+/**
+ * API's Routes './routes/api/routes.adverts';
+ */
+app.post('/api/loginJWT', loginControllerWeb.postJWT);
+app.use('/api/ads', jwtAuthVerifyToken(), require('./routes/api/ads'));
+app.get('/api/logout', loginControllerWeb.logoutSession);
+
+/**
+ *  Website Routes on './routes/routes.js'
+ */
+
 app.use('/', require('./routes/routes'));
 app.use('/change-locale', require('./routes/change-locale'));
 
-// Controller structure
-app.get('/login', loginController.getLogin);
-app.post('/login', loginController.logintPost);
-app.get('/logout', loginController.logoutSession);
+// Controller structure Web
+app.get('/login', loginControllerWeb.getLogin);
+app.post('/login', loginControllerWeb.logintPost);
+
+// Controller structure Postman
+app.post('/api/signup', loginControllerPostman.createUser);
+app.post('/api/signin', loginControllerPostman.siginUserPostman);
+app.get(
+  '/api/private-user',
+  jwtAuthVerifyToken(),
+  loginControllerPostman.loginUserPostman
+);
 
 // Private zone
 app.get('/nodepop-private', sessionAuthMiddleware(), privateController.getPrivate);

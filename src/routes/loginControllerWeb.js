@@ -3,7 +3,7 @@ const User = require('../models/User');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 
-class LoginController {
+class loginControllerWeb {
   /**
    * Get /login
    */
@@ -27,10 +27,6 @@ class LoginController {
 
       await addUser.encryptPassword();
       await addUser.save();
-      const ver = await User.encryptPassword(password);
-
-      // console.log(req.body);
-      console.log(ver, addUser);
 
       const token = jwt.sign({id: addUser._id}, process.env.JWT_SECRET, {
         expiresIn: 60 * 60 * 24, //Time seconds
@@ -43,7 +39,7 @@ class LoginController {
   }
 
   /**
-   * Post /login
+   * Post /nodepop-private (Login session Web)
    */
   async logintPost(req, res, next) {
     try {
@@ -120,4 +116,4 @@ class LoginController {
   }
 }
 
-module.exports = new LoginController();
+module.exports = new loginControllerWeb();
