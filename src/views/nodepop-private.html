@@ -28,7 +28,7 @@
                 <!-- Else? -->
                 <% if(advert.onSale === false){ %> <%= __('false') %> <% } %>
               </td>
-              <td class="center"><%= `${advert.cost}` %></td>
+              <td class="center"><%= `${advert.cost}` %> <%= __('€') %></td>
               <td class="center"><%= `${advert._id}` %></td>
               <td class="center"><%= `${advert.imagePath}` %></td>
             </tr>
