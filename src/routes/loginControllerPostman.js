@@ -53,7 +53,7 @@ class loginControllerPostman {
     const validPassword = await userEmail.validatePassword(password);
     if (!validPassword) return res.status(401).json({auth: false, token: null});
 
-    const token = jwt.sign({id: userEmail._id}, secretEnv, {
+    const token = jwt.sign({id: userEmail._id}, process.env.JWT_SECRET, {
       expiresIn: 60 * 60 * 24 * 20,
     });
     res.json({auth: true, token});
