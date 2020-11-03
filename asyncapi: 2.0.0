@@ -1,0 +1,25 @@
+asyncapi: 2.0.0
+info:
+  title: 'Thumbnail Creator'
+  version: 1.0.0
+
+servers:
+  dev:
+    url: 'ws://localhost:8000'
+    protocol: ws
+    description: the development server
+  
+channels:
+  resizeImg:
+    publish:
+      message:
+        payload:
+          type: object
+          required:
+            - originPathImg
+            - destinationPathImgResize
+          properties:
+            originPathImg:
+              type: string
+            destinationPathImgResize:
+              type: string
