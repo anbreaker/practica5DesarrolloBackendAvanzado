@@ -31,8 +31,9 @@
                 <% if(advert.onSale === false){ %> <%= __('false') %> <% } %>
               </td>
               <td class="center"><%= advert.cost %> <%= __('€') %></td>
-              <!-- <td class="center"><img src="<%= advert.imagePath %>.png" alt="img" /></td> -->
-              <td class="center"><img src="" alt="img" /></td>
+              <td class="center">
+                <img src="/thumbnail/<%= advert.imagePath %>.png" alt="img" />
+              </td>
               <td class="center"><%= advert.tags %></td>
               <td class="center"><%= advert._id %></td>
               <td class="center"><%= advert.imagePath %></td>
