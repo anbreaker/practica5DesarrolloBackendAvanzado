@@ -64,7 +64,7 @@ app.use((req, res, next) => {
  */
 app.post('/api/loginJWT', loginControllerWeb.postJWT);
 app.use('/api/ads', jwtAuthVerifyToken(), require('./routes/api/ads'));
-app.get('/api/logout', loginControllerWeb.logoutSession);
+app.get('/logout', loginControllerWeb.logoutSession);
 
 /**
  *  Website Routes on './routes/routes.js'
