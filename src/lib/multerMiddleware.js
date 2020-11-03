@@ -29,7 +29,6 @@ const multerMiddlewareUploads = multer({
     const extensionName = filetypes.test(path.extname(file.originalname));
     if (mimetype && extensionName) {
       return callback(null, true);
-      // Send sms
     } else {
       callback(
         new Error('The file must be a image with extension: jpeg | jpg | png | gif')

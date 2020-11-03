@@ -21,6 +21,9 @@ const advertSchema = new Schema(
       type: String,
       required: true,
     },
+    thumbnail: {
+      type: String,
+    },
     tags: ['tecnology', 'developer', 'work', 'lifestyle'],
   },
   {

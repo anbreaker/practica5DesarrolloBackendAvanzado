@@ -2,9 +2,12 @@
 
 const {Router} = require('express');
 const router = Router();
+const path = require('path');
 const multerMiddlewareUploads = require('../../lib/multerMiddleware');
 const Advert = require('../../models/Advert');
 const filterCost = require('../../lib/filterCost');
+const cote = require('cote');
+const requester = new cote.Requester({name: 'Thumbnail Client'});
 
 router.get('/', async (req, res, next) => {
   try {
@@ -46,6 +49,18 @@ router.post(
       const newAdvert = new Advert({name, onSale, cost, imagePath, tags});
 
       const advert = await newAdvert.save();
+
+      console.log(advert, '<--- Ver anuncio!!');
+
+      // Send sms to microservice
+      requester.send({
+        type: 'resize img',
+        originPathImg: path.join(__dirname, '../../public/uploads', advert.imagePath),
+        destinationPathImgResize: `'img-resizell.jpg'`,
+        flag: 1,
+      });
+
+      console.log('\n<--img subida');
       res.status(201).json(advert);
     } catch (error) {
       next(error);

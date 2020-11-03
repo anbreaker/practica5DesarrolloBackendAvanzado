@@ -1,15 +1,13 @@
 'use strict';
-// Servicio de resize imagenes
+
 const cote = require('cote');
 const jimp = require('jimp');
 
-// Declarar el micro-servicio
+// Declarated microservice
 const responder = new cote.Responder({name: 'Currency responder'});
 let flag = 0;
 
-// Tabla de conversion (DataBase)
-
-// Logica del micro-servicio
+// Microservice Logic
 responder.on('resize img', (req, done) => {
   flag += 1;
   console.log(
@@ -20,12 +18,13 @@ responder.on('resize img', (req, done) => {
     flag
   );
 
-  // Convertir imagen
-
-  console.log(req.originPathImg, req.destinationPathImgResize);
+  // Image Converter
   resizeImg(req.originPathImg, req.destinationPathImgResize, flag);
 
-  // done();
+  console.log(req.originPathImg, req.destinationPathImgResize);
+
+  // Send findandUpdate...
+  done();
 });
 
 const resizeImg = async (originPathImg, destinationPathImgResize, flag) => {
