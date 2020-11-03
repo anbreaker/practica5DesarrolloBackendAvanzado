@@ -51,21 +51,23 @@ router.post(
       const newAdvert = new Advert({name, onSale, cost, imagePath, tags});
 
       const advert = await newAdvert.save();
-
-      console.log(advert, '<--- Ver anuncio!!');
+      const destinationPathImgResize = path.join(
+        __dirname,
+        '../../public/uploads/thumbnails',
+        `${advert.imagePath}.png`
+      );
 
       // Send sms to microservice
       requester.send({
         type: 'resize img',
         originPathImg: path.join(__dirname, '../../public/uploads', advert.imagePath),
-        destinationPathImgResize: path.join(
-          __dirname,
-          '../../public/uploads/thumbnails',
-          `${advert.imagePath}.png`
-        ),
+        destinationPathImgResize,
       });
 
-      console.log('\n<--img subida');
+      // updateDatabase
+      // advert.thumbnail = advert.imagePath;
+      // advert.save();
+
       res.status(201).json(advert);
     } catch (error) {
       next(error);
