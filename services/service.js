@@ -7,7 +7,7 @@ const resizeImg = require('./resizeImg');
 const responder = new cote.Responder({name: 'Thumbnail Creator'});
 
 // Logic
-responder.on('resize img', (message, done) => {
+responder.on('resizeImg', (message, done) => {
   console.log(
     `Service: ${message.originPathImg} ${message.destinationPathImgResize} ${Date.now()}`
   );

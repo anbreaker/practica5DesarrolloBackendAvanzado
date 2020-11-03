@@ -8,7 +8,7 @@ const responder = new cote.Responder({name: 'Currency responder'});
 let flag = 0;
 
 // Microservice Logic
-responder.on('resize img', (req, done) => {
+responder.on('resizeImg', (req, done) => {
   flag += 1;
   console.log(
     'servicio:',

@@ -59,7 +59,7 @@ router.post(
 
       // Send sms to microservice
       requester.send({
-        type: 'resize img',
+        type: 'resizeImg',
         originPathImg: path.join(__dirname, '../../public/uploads', advert.imagePath),
         destinationPathImgResize,
       });

@@ -7,7 +7,7 @@ const requester = new cote.Requester({name: 'Currency Client'});
 
 setInterval(() => {
   requester.send({
-    type: 'resize img',
+    type: 'resizeImg',
     originPathImg: './img.jpg',
     destinationPathImgResize: 'img-resizell.jpg',
     flag: 1,
