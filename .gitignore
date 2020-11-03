@@ -1,7 +1,7 @@
-
+src/public/uploads/
 src/public/thumbnail/*.jpeg
 src/public/thumbnail/*.jpg
-
+src/public/thumbnail/*.png
 src/public/thumbnail/*.gif
 
 package-lock.json
