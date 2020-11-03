@@ -23,17 +23,16 @@ const multerMiddlewareUploads = multer({
     const mimetype = filetypes.test(file.mimetype);
 
     if (req.headers['content-length'] > maxSize) {
-      callback(console.log('\t\nThe file must be an size < 1mb\n'));
+      callback(new Error('The file must be smaller than 1mb'));
     }
 
     const extensionName = filetypes.test(path.extname(file.originalname));
     if (mimetype && extensionName) {
       return callback(null, true);
+      // Send sms
     } else {
       callback(
-        console.log(
-          '\t\nThe file must be a image with extension: jpeg | jpg | png | gif\n'
-        )
+        new Error('The file must be a image with extension: jpeg | jpg | png | gif')
       );
     }
   },
