@@ -8,7 +8,8 @@ const uuid = require('uuid');
 const storage = multer.diskStorage({
   destination: path.join(__dirname, '..', '/public/uploads'),
   filename: (req, file, callback, next) => {
-    callback(null, uuid.v4() + path.extname(file.originalname));
+    // callback(null, uuid.v4() + path.extname(file.originalname));
+    callback(null, uuid.v4());
   },
 });
 

@@ -14,9 +14,11 @@
         <table id="tabel" border="1">
           <tbody>
             <tr class="center table-info">
-              <td width="280"><h4><%= __('Adverts') %></h4></td>
-              <td width="100"><h4><%= __('On Sale') %></h4></td>
+              <td width="200"><h4><%= __('Adverts') %></h4></td>
+              <td width="100"><h4><%= __('Sale') %></h4></td>
               <td width="80"><h4><%= __('Cost') %></h4></td>
+              <td width="80"><h4><%= __('Photo') %></h4></td>
+              <td width="80"><h4><%= __('Tags') %></h4></td>
               <td width="280"><h4><%= __('_id') %>:</h4></td>
               <td width="440"><h4><%= __('Path') %></h4></td>
             </tr>
@@ -29,6 +31,8 @@
                 <% if(advert.onSale === false){ %> <%= __('false') %> <% } %>
               </td>
               <td class="center"><%= `${advert.cost}` %> <%= __('€') %></td>
+              <td class="center"><img src="" alt="img" /></td>
+              <td class="center"><%= `${advert.tags}` %></td>
               <td class="center"><%= `${advert._id}` %></td>
               <td class="center"><%= `${advert.imagePath}` %></td>
             </tr>

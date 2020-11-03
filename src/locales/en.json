@@ -2,7 +2,7 @@
 	"Gallery": "Gallery",
 	"View ads": "View ads",
 	"Adverts": "Adverts",
-	"On Sale": "On Sale",
+	"Sale": "Sale",
 	"Cost": "Cost",
 	"Path": "Path",
 	"_id": "_id",
@@ -37,5 +37,7 @@
 	"Log Out": "Log Out",
 	"User Session": "User Session",
 	"Hi!": "Hi!",
-	"€": "£"
+	"€": "£",
+	"Tags": "Tags",
+	"Photo": "Photo"
 }
