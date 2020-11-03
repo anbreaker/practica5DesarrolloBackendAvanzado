@@ -7,7 +7,9 @@ const multerMiddlewareUploads = require('../../lib/multerMiddleware');
 const Advert = require('../../models/Advert');
 const filterCost = require('../../lib/filterCost');
 const cote = require('cote');
-const requester = new cote.Requester({name: 'Thumbnail Client'});
+const packageJson = require('../../../package.json');
+
+const requester = new cote.Requester({name: packageJson.name});
 
 router.get('/', async (req, res, next) => {
   try {
@@ -56,8 +58,11 @@ router.post(
       requester.send({
         type: 'resize img',
         originPathImg: path.join(__dirname, '../../public/uploads', advert.imagePath),
-        destinationPathImgResize: `'img-resizell.jpg'`,
-        flag: 1,
+        destinationPathImgResize: path.join(
+          __dirname,
+          '../../public/uploads/thumbnails',
+          `${advert.imagePath}.png`
+        ),
       });
 
       console.log('\n<--img subida');
