@@ -1,0 +1,891 @@
+{
+	"info": {
+		"_postman_id": "c483d4a8-f01c-4592-b901-c417d5a58295",
+		"name": "NodePopJWT",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get all Ads",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/ads/5f5912fbb1828432bd7a162f?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYTI4YmIzMmIzMWUzNjgzOWM1YWNhNyIsImlhdCI6MTYwNDQ5MzI0MiwiZXhwIjoxNjA2MjIxMjQyfQ.AISxX7HBUUMvHsinkieNv37TWuF0e76iblOHIgbCYas",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"ads",
+						"5f5912fbb1828432bd7a162f"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYTI4YmIzMmIzMWUzNjgzOWM1YWNhNyIsImlhdCI6MTYwNDQ5MzI0MiwiZXhwIjoxNjA2MjIxMjQyfQ.AISxX7HBUUMvHsinkieNv37TWuF0e76iblOHIgbCYas"
+						}
+					]
+				},
+				"description": "Get all the ads from the database.\n\nReturns:\n\n```json\n[\n  {\n    \"tags\": [\"technology\", \"developer\", \"work\"],\n    \"_id\": \"5f5912fbb1828432bd7a162f\",\n    \"name\": \"Vant Pc ultraMOOVE-s\",\n    \"onSale\": true,\n    \"cost\": 789,\n    \"imagePath\": \"vant.png\",\n    \"__v\": 0\n  },\n  {\n    \"tags\": [\"technology\", \"lifestyle\"],\n    \"_id\": \"5f5912fbb1828432bd7a1630\",\n    \"name\": \"OnePlus 8\",\n    \"onSale\": false,\n    \"cost\": 425,\n    \"imagePath\": \"oneplus.png\",\n    \"__v\": 0\n  },\n  {\n    \"tags\": [\"technology\", \"lifestyle\"],\n    \"_id\": \"5f5912fbb1828432bd7a1631\",\n    \"name\": \"Nikon D610\",\n    \"onSale\": true,\n    \"cost\": 707,\n    \"imagePath\": \"nikon.png\",\n    \"__v\": 0\n  },\n  {\n    \"tags\": [\"work\", \"developer\"],\n    \"_id\": \"5f5917f2aa4d152eb763077a\",\n    \"name\": \"Advert Number 4\",\n    \"onSale\": true,\n    \"cost\": 400,\n    \"imagePath\": \"d1d50271-4b0a-4909-8a9f-b5ad48998d38.png\",\n    \"__v\": 0\n  },\n  {\n    \"tags\": [\"lifestyle\", \"technology\"],\n    \"_id\": \"5f591c30482b993bb1327d0e\",\n    \"name\": \"Advert Number 5\",\n    \"onSale\": false,\n    \"cost\": 500,\n    \"imagePath\": \"d1d50271-4b0a-4909-8a9f-b5ad48998d38.png\",\n    \"__v\": 0\n  },\n  {\n    \"tags\": [\"lifestyle\"],\n    \"_id\": \"5f591c30682b993bb1327d0e\",\n    \"name\": \"Advert Number 6\",\n    \"onSale\": true,\n    \"cost\": 600,\n    \"imagePath\": \"d1d50271-4b0a-4909-8a9f-b5ad48998d38.png\",\n    \"__v\": 0\n  },\n  {\n    \"tags\": [\"work\", \"technology\"],\n    \"_id\": \"5f591c30682c993bb1327d0e\",\n    \"name\": \"Advert Number 7\",\n    \"onSale\": false,\n    \"cost\": 700,\n    \"imagePath\": \"d1d50271-4b0a-4909-8a9f-b5ad48998d38.png\",\n    \"__v\": 0\n  },\n  {\n    \"tags\": [\"developer\"],\n    \"_id\": \"5f591c30682b993bb1427d0e\",\n    \"name\": \"Advert Number 8\",\n    \"onSale\": true,\n    \"cost\": 800,\n    \"imagePath\": \"d1d50271-4b0a-4909-8a9f-b5ad48998d38.png\",\n    \"__v\": 0\n  }\n]\n```"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Ad with form-data",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "test Imagen",
+							"type": "text"
+						},
+						{
+							"key": "onSale",
+							"value": "true",
+							"type": "text"
+						},
+						{
+							"key": "cost",
+							"value": "123",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/home/anbreaker/Imágenes/5xcZORM.jpg"
+						},
+						{
+							"key": "tags",
+							"value": "work",
+							"type": "text"
+						},
+						{
+							"key": "tags",
+							"value": "developer",
+							"type": "text"
+						},
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					],
+					"options": {
+						"formdata": {}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/ads?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYTI4YmIzMmIzMWUzNjgzOWM1YWNhNyIsImlhdCI6MTYwNDQ5MzI0MiwiZXhwIjoxNjA2MjIxMjQyfQ.AISxX7HBUUMvHsinkieNv37TWuF0e76iblOHIgbCYas",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"ads"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYTI4YmIzMmIzMWUzNjgzOWM1YWNhNyIsImlhdCI6MTYwNDQ5MzI0MiwiZXhwIjoxNjA2MjIxMjQyfQ.AISxX7HBUUMvHsinkieNv37TWuF0e76iblOHIgbCYas"
+						}
+					]
+				},
+				"description": "## Create Ad with form-data\n\n- Returns:\n\n```json\n{\n  \"tags\": [\"work\", \"developer\"],\n  \"_id\": \"5f5caf28950a2567a632462b\",\n  \"name\": \"test Imagen\",\n  \"onSale\": true,\n  \"cost\": 123,\n  \"imagePath\": \"6ccc1b6d-90ae-476c-acd6-be5283f54a9b.jpg\",\n  \"__v\": 0\n}\n```"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Ad",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/ads/5fa2671ee10d5e37b06cc18e?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYTI4YmIzMmIzMWUzNjgzOWM1YWNhNyIsImlhdCI6MTYwNDQ5MzI0MiwiZXhwIjoxNjA2MjIxMjQyfQ.AISxX7HBUUMvHsinkieNv37TWuF0e76iblOHIgbCYas",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"ads",
+						"5fa2671ee10d5e37b06cc18e"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYTI4YmIzMmIzMWUzNjgzOWM1YWNhNyIsImlhdCI6MTYwNDQ5MzI0MiwiZXhwIjoxNjA2MjIxMjQyfQ.AISxX7HBUUMvHsinkieNv37TWuF0e76iblOHIgbCYas"
+						}
+					]
+				},
+				"description": "## Delete an ad using its id"
+			},
+			"response": []
+		},
+		{
+			"name": "Update Ad",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\":\"test\",\n    \"onSale\":\"false\",\n    \"cost\": 214\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/ads/5f5912fbb1828432bd7a1630?name=test&onsale=true&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYTI4YmIzMmIzMWUzNjgzOWM1YWNhNyIsImlhdCI6MTYwNDQ5MzI0MiwiZXhwIjoxNjA2MjIxMjQyfQ.AISxX7HBUUMvHsinkieNv37TWuF0e76iblOHIgbCYas",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"ads",
+						"5f5912fbb1828432bd7a1630"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "test"
+						},
+						{
+							"key": "onsale",
+							"value": "true"
+						},
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYTI4YmIzMmIzMWUzNjgzOWM1YWNhNyIsImlhdCI6MTYwNDQ5MzI0MiwiZXhwIjoxNjA2MjIxMjQyfQ.AISxX7HBUUMvHsinkieNv37TWuF0e76iblOHIgbCYas"
+						}
+					]
+				},
+				"description": "## Update an ad according to the parameters that we pass it after locating it by its id\n\n- Return\n\n```json\n{\n  \"tags\": [\"technology\", \"lifestyle\"],\n  \"_id\": \"5f5912fbb1828432bd7a1630\",\n  \"name\": \"test\",\n  \"onSale\": false,\n  \"cost\": 214,\n  \"imagePath\": \"oneplus.png\",\n  \"__v\": 0\n}\n```"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Ad by :_id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/ads/5f5912fbb1828432bd7a1630?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYTI4YmIzMmIzMWUzNjgzOWM1YWNhNyIsImlhdCI6MTYwNDQ5MzI0MiwiZXhwIjoxNjA2MjIxMjQyfQ.AISxX7HBUUMvHsinkieNv37TWuF0e76iblOHIgbCYas",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"ads",
+						"5f5912fbb1828432bd7a1630"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYTI4YmIzMmIzMWUzNjgzOWM1YWNhNyIsImlhdCI6MTYwNDQ5MzI0MiwiZXhwIjoxNjA2MjIxMjQyfQ.AISxX7HBUUMvHsinkieNv37TWuF0e76iblOHIgbCYas"
+						}
+					]
+				},
+				"description": "## Get ad by :id (5f5912fbb1828432bd7a1630)\n\n- Return of this id: (5f5912fbb1828432bd7a1630)\n\n```json\n{\n  \"tags\": [\"technology\", \"lifestyle\"],\n  \"_id\": \"5f5912fbb1828432bd7a1630\",\n  \"name\": \"test\",\n  \"onSale\": false,\n  \"cost\": 214,\n  \"imagePath\": \"oneplus.png\",\n  \"__v\": 0\n}\n```"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Ads by Filters",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/ads/?tags=technology&cost=700-&name=Ad&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYTI4YmIzMmIzMWUzNjgzOWM1YWNhNyIsImlhdCI6MTYwNDQ5MzI0MiwiZXhwIjoxNjA2MjIxMjQyfQ.AISxX7HBUUMvHsinkieNv37TWuF0e76iblOHIgbCYas",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"ads",
+						""
+					],
+					"query": [
+						{
+							"key": "tags",
+							"value": "technology"
+						},
+						{
+							"key": "tags",
+							"value": "lifestyle",
+							"disabled": true
+						},
+						{
+							"key": "onSale",
+							"value": "true",
+							"disabled": true
+						},
+						{
+							"key": "cost",
+							"value": "700-"
+						},
+						{
+							"key": "name",
+							"value": "Ad"
+						},
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYTI4YmIzMmIzMWUzNjgzOWM1YWNhNyIsImlhdCI6MTYwNDQ5MzI0MiwiZXhwIjoxNjA2MjIxMjQyfQ.AISxX7HBUUMvHsinkieNv37TWuF0e76iblOHIgbCYas"
+						}
+					]
+				},
+				"description": "## Get ad by filters an params\n\n- Return with this params:\n  - tags: technology,\n  - cost: 700-,\n  - name: Ad\n\n```json\n[\n  {\n    \"tags\": [\"work\", \"technology\"],\n    \"_id\": \"5f591c30682c993bb1327d0e\",\n    \"name\": \"Advert Number 7\",\n    \"onSale\": false,\n    \"cost\": 700,\n    \"imagePath\": \"d1d50271-4b0a-4909-8a9f-b5ad48998d38.png\",\n    \"__v\": 0\n  }\n]\n```\n\n### Other example:\n\n- Return with this params:\n  - tags: lifestyle,\n  - onSale: true,\n\n```json\n[\n  {\n    \"tags\": [\"technology\", \"lifestyle\"],\n    \"_id\": \"5f5912fbb1828432bd7a1631\",\n    \"name\": \"Nikon D610\",\n    \"onSale\": true,\n    \"cost\": 707,\n    \"imagePath\": \"nikon.png\",\n    \"__v\": 0\n  },\n  {\n    \"tags\": [\"lifestyle\"],\n    \"_id\": \"5f591c30682b993bb1327d0e\",\n    \"name\": \"Advert Number 6\",\n    \"onSale\": true,\n    \"cost\": 600,\n    \"imagePath\": \"d1d50271-4b0a-4909-8a9f-b5ad48998d38.png\",\n    \"__v\": 0\n  }\n]\n```"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Ads by Filters Initial Name",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/ads/?name=Van&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYTI4YmIzMmIzMWUzNjgzOWM1YWNhNyIsImlhdCI6MTYwNDQ5MzI0MiwiZXhwIjoxNjA2MjIxMjQyfQ.AISxX7HBUUMvHsinkieNv37TWuF0e76iblOHIgbCYas",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"ads",
+						""
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Van"
+						},
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYTI4YmIzMmIzMWUzNjgzOWM1YWNhNyIsImlhdCI6MTYwNDQ5MzI0MiwiZXhwIjoxNjA2MjIxMjQyfQ.AISxX7HBUUMvHsinkieNv37TWuF0e76iblOHIgbCYas"
+						}
+					]
+				},
+				"description": "## Get ad by filters inital name\n\n- Return with name= Van\n\n```json\n[\n  {\n    \"tags\": [\"technology\", \"developer\", \"work\"],\n    \"_id\": \"5f5912fbb1828432bd7a162f\",\n    \"name\": \"Vant Pc ultraMOOVE-s\",\n    \"onSale\": true,\n    \"cost\": 789,\n    \"imagePath\": \"vant.png\",\n    \"__v\": 0\n  }\n]\n```"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Ads by Filters Sort",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/ads/?sort=cost&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYTI4YmIzMmIzMWUzNjgzOWM1YWNhNyIsImlhdCI6MTYwNDQ5MzI0MiwiZXhwIjoxNjA2MjIxMjQyfQ.AISxX7HBUUMvHsinkieNv37TWuF0e76iblOHIgbCYas",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"ads",
+						""
+					],
+					"query": [
+						{
+							"key": "sort",
+							"value": "name",
+							"disabled": true
+						},
+						{
+							"key": "sort",
+							"value": "cost"
+						},
+						{
+							"key": "sort",
+							"value": "onSale",
+							"disabled": true
+						},
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYTI4YmIzMmIzMWUzNjgzOWM1YWNhNyIsImlhdCI6MTYwNDQ5MzI0MiwiZXhwIjoxNjA2MjIxMjQyfQ.AISxX7HBUUMvHsinkieNv37TWuF0e76iblOHIgbCYas"
+						}
+					]
+				},
+				"description": "## Sort by \"filter\" (name, price, id), you can use one or several at the same time\n\n- Return by sort with cost:\n\n```json\n[\n  {\n    \"tags\": [\"technology\", \"developer\", \"work\"],\n    \"_id\": \"5f5912fbb1828432bd7a162f\",\n    \"name\": \"Vant Pc ultraMOOVE-s\",\n    \"onSale\": true,\n    \"cost\": 789,\n    \"imagePath\": \"vant.png\",\n    \"__v\": 0\n  }\n]\n```"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Ads by Filters Limit",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/ads/?limit=2&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYTI4YmIzMmIzMWUzNjgzOWM1YWNhNyIsImlhdCI6MTYwNDQ5MzI0MiwiZXhwIjoxNjA2MjIxMjQyfQ.AISxX7HBUUMvHsinkieNv37TWuF0e76iblOHIgbCYas",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"ads",
+						""
+					],
+					"query": [
+						{
+							"key": "tags",
+							"value": "technology",
+							"disabled": true
+						},
+						{
+							"key": "tags",
+							"value": "lifestyle",
+							"disabled": true
+						},
+						{
+							"key": "onSale",
+							"value": "true",
+							"disabled": true
+						},
+						{
+							"key": "cost",
+							"value": "700-",
+							"disabled": true
+						},
+						{
+							"key": "limit",
+							"value": "2"
+						},
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYTI4YmIzMmIzMWUzNjgzOWM1YWNhNyIsImlhdCI6MTYwNDQ5MzI0MiwiZXhwIjoxNjA2MjIxMjQyfQ.AISxX7HBUUMvHsinkieNv37TWuF0e76iblOHIgbCYas"
+						}
+					]
+				},
+				"description": "## Get Ads by Filters Limit\n\n- Returns up to 2 ads per page:\n\n```json\n[\n  {\n    \"tags\": [\"technology\", \"developer\", \"work\"],\n    \"_id\": \"5f5912fbb1828432bd7a162f\",\n    \"name\": \"Vant Pc ultraMOOVE-s\",\n    \"onSale\": true,\n    \"cost\": 789,\n    \"imagePath\": \"vant.png\",\n    \"__v\": 0\n  },\n  {\n    \"tags\": [\"technology\", \"lifestyle\"],\n    \"_id\": \"5f5912fbb1828432bd7a1630\",\n    \"name\": \"OnePlus 8\",\n    \"onSale\": false,\n    \"cost\": 425,\n    \"imagePath\": \"oneplus.png\",\n    \"__v\": 0\n  }\n]\n```"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Ads by Filters Skip & Limit",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/ads/?skip=5&limit=2&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYTI4YmIzMmIzMWUzNjgzOWM1YWNhNyIsImlhdCI6MTYwNDQ5MzI0MiwiZXhwIjoxNjA2MjIxMjQyfQ.AISxX7HBUUMvHsinkieNv37TWuF0e76iblOHIgbCYas",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"ads",
+						""
+					],
+					"query": [
+						{
+							"key": "tags",
+							"value": "technology",
+							"disabled": true
+						},
+						{
+							"key": "tags",
+							"value": "lifestyle",
+							"disabled": true
+						},
+						{
+							"key": "onSale",
+							"value": "true",
+							"disabled": true
+						},
+						{
+							"key": "cost",
+							"value": "700-",
+							"disabled": true
+						},
+						{
+							"key": "skip",
+							"value": "5"
+						},
+						{
+							"key": "limit",
+							"value": "2"
+						},
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYTI4YmIzMmIzMWUzNjgzOWM1YWNhNyIsImlhdCI6MTYwNDQ5MzI0MiwiZXhwIjoxNjA2MjIxMjQyfQ.AISxX7HBUUMvHsinkieNv37TWuF0e76iblOHIgbCYas"
+						}
+					]
+				},
+				"description": "## Get Ads with Pagination and Skip\n\n- Returns\n\n```json\n[\n  {\n    \"tags\": [\"lifestyle\"],\n    \"_id\": \"5f591c30682b993bb1327d0e\",\n    \"name\": \"Advert Number 6\",\n    \"onSale\": true,\n    \"cost\": 600,\n    \"imagePath\": \"d1d50271-4b0a-4909-8a9f-b5ad48998d38.png\",\n    \"__v\": 0\n  },\n  {\n    \"tags\": [\"work\", \"technology\"],\n    \"_id\": \"5f591c30682c993bb1327d0e\",\n    \"name\": \"Advert Number 7\",\n    \"onSale\": false,\n    \"cost\": 700,\n    \"imagePath\": \"d1d50271-4b0a-4909-8a9f-b5ad48998d38.png\",\n    \"__v\": 0\n  }\n]\n```"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Ads by Cost Simple (num)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/ads/?cost=400&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYTI4YmIzMmIzMWUzNjgzOWM1YWNhNyIsImlhdCI6MTYwNDQ5MzI0MiwiZXhwIjoxNjA2MjIxMjQyfQ.AISxX7HBUUMvHsinkieNv37TWuF0e76iblOHIgbCYas",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"ads",
+						""
+					],
+					"query": [
+						{
+							"key": "cost",
+							"value": "400"
+						},
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYTI4YmIzMmIzMWUzNjgzOWM1YWNhNyIsImlhdCI6MTYwNDQ5MzI0MiwiZXhwIjoxNjA2MjIxMjQyfQ.AISxX7HBUUMvHsinkieNv37TWuF0e76iblOHIgbCYas"
+						}
+					]
+				},
+				"description": "## Get Ads by Cost Simple (num)\n\n- Returns the ads with the same price as the last parameter:\n\n```json\n[\n  {\n    \"tags\": [\"work\", \"developer\"],\n    \"_id\": \"5f5917f2aa4d152eb763077a\",\n    \"name\": \"Advert Number 4\",\n    \"onSale\": true,\n    \"cost\": 400,\n    \"imagePath\": \"d1d50271-4b0a-4909-8a9f-b5ad48998d38.png\",\n    \"__v\": 0\n  }\n]\n```"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Ads by Cost (num-)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/ads/?cost=700-&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYTI4YmIzMmIzMWUzNjgzOWM1YWNhNyIsImlhdCI6MTYwNDQ5MzI0MiwiZXhwIjoxNjA2MjIxMjQyfQ.AISxX7HBUUMvHsinkieNv37TWuF0e76iblOHIgbCYas",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"ads",
+						""
+					],
+					"query": [
+						{
+							"key": "cost",
+							"value": "700-"
+						},
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYTI4YmIzMmIzMWUzNjgzOWM1YWNhNyIsImlhdCI6MTYwNDQ5MzI0MiwiZXhwIjoxNjA2MjIxMjQyfQ.AISxX7HBUUMvHsinkieNv37TWuF0e76iblOHIgbCYas"
+						}
+					]
+				},
+				"description": "## Get Ads by Cost (num-)\n\n- Returns the ads with the price greater than or equal to the parameter:\n\n```json\n[\n  {\n    \"tags\": [\"technology\", \"developer\", \"work\"],\n    \"_id\": \"5f5912fbb1828432bd7a162f\",\n    \"name\": \"Vant Pc ultraMOOVE-s\",\n    \"onSale\": true,\n    \"cost\": 789,\n    \"imagePath\": \"vant.png\",\n    \"__v\": 0\n  },\n  {\n    \"tags\": [\"technology\", \"lifestyle\"],\n    \"_id\": \"5f5912fbb1828432bd7a1631\",\n    \"name\": \"Nikon D610\",\n    \"onSale\": true,\n    \"cost\": 707,\n    \"imagePath\": \"nikon.png\",\n    \"__v\": 0\n  },\n  {\n    \"tags\": [\"work\", \"technology\"],\n    \"_id\": \"5f591c30682c993bb1327d0e\",\n    \"name\": \"Advert Number 7\",\n    \"onSale\": false,\n    \"cost\": 700,\n    \"imagePath\": \"d1d50271-4b0a-4909-8a9f-b5ad48998d38.png\",\n    \"__v\": 0\n  },\n  {\n    \"tags\": [\"developer\"],\n    \"_id\": \"5f591c30682b993bb1427d0e\",\n    \"name\": \"Advert Number 8\",\n    \"onSale\": true,\n    \"cost\": 800,\n    \"imagePath\": \"d1d50271-4b0a-4909-8a9f-b5ad48998d38.png\",\n    \"__v\": 0\n  }\n]\n```"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Ads by Cost (-num)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/ads/?cost=-500&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYTI4YmIzMmIzMWUzNjgzOWM1YWNhNyIsImlhdCI6MTYwNDQ5MzI0MiwiZXhwIjoxNjA2MjIxMjQyfQ.AISxX7HBUUMvHsinkieNv37TWuF0e76iblOHIgbCYas",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"ads",
+						""
+					],
+					"query": [
+						{
+							"key": "cost",
+							"value": "-500"
+						},
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYTI4YmIzMmIzMWUzNjgzOWM1YWNhNyIsImlhdCI6MTYwNDQ5MzI0MiwiZXhwIjoxNjA2MjIxMjQyfQ.AISxX7HBUUMvHsinkieNv37TWuF0e76iblOHIgbCYas"
+						}
+					]
+				},
+				"description": "## Get Ads by Cost (-num)\n\n- Returns all ads with a price lower than or equal to the parameter.:\n\n```json\n[\n  {\n    \"tags\": [\"technology\", \"lifestyle\"],\n    \"_id\": \"5f5912fbb1828432bd7a1630\",\n    \"name\": \"OnePlus 8\",\n    \"onSale\": false,\n    \"cost\": 425,\n    \"imagePath\": \"oneplus.png\",\n    \"__v\": 0\n  },\n  {\n    \"tags\": [\"work\", \"developer\"],\n    \"_id\": \"5f5917f2aa4d152eb763077a\",\n    \"name\": \"Advert Number 4\",\n    \"onSale\": true,\n    \"cost\": 400,\n    \"imagePath\": \"d1d50271-4b0a-4909-8a9f-b5ad48998d38.png\",\n    \"__v\": 0\n  },\n  {\n    \"tags\": [\"lifestyle\", \"technology\"],\n    \"_id\": \"5f591c30482b993bb1327d0e\",\n    \"name\": \"Advert Number 5\",\n    \"onSale\": false,\n    \"cost\": 500,\n    \"imagePath\": \"d1d50271-4b0a-4909-8a9f-b5ad48998d38.png\",\n    \"__v\": 0\n  }\n]\n```"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Ads by Cost (num-num)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/ads/?cost=700-825&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYTI4YmIzMmIzMWUzNjgzOWM1YWNhNyIsImlhdCI6MTYwNDQ5MzI0MiwiZXhwIjoxNjA2MjIxMjQyfQ.AISxX7HBUUMvHsinkieNv37TWuF0e76iblOHIgbCYas",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"ads",
+						""
+					],
+					"query": [
+						{
+							"key": "cost",
+							"value": "700-825"
+						},
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYTI4YmIzMmIzMWUzNjgzOWM1YWNhNyIsImlhdCI6MTYwNDQ5MzI0MiwiZXhwIjoxNjA2MjIxMjQyfQ.AISxX7HBUUMvHsinkieNv37TWuF0e76iblOHIgbCYas"
+						}
+					]
+				},
+				"description": "## Get Ads by Cost (num-num)\n\n- Returns the ads with the price included between the parameters:\n\n```json\n[\n  {\n    \"tags\": [\"technology\", \"developer\", \"work\"],\n    \"_id\": \"5f5912fbb1828432bd7a162f\",\n    \"name\": \"Vant Pc ultraMOOVE-s\",\n    \"onSale\": true,\n    \"cost\": 789,\n    \"imagePath\": \"vant.png\",\n    \"__v\": 0\n  },\n  {\n    \"tags\": [\"technology\", \"lifestyle\"],\n    \"_id\": \"5f5912fbb1828432bd7a1631\",\n    \"name\": \"Nikon D610\",\n    \"onSale\": true,\n    \"cost\": 707,\n    \"imagePath\": \"nikon.png\",\n    \"__v\": 0\n  },\n  {\n    \"tags\": [\"work\", \"technology\"],\n    \"_id\": \"5f591c30682c993bb1327d0e\",\n    \"name\": \"Advert Number 7\",\n    \"onSale\": false,\n    \"cost\": 700,\n    \"imagePath\": \"d1d50271-4b0a-4909-8a9f-b5ad48998d38.png\",\n    \"__v\": 0\n  },\n  {\n    \"tags\": [\"developer\"],\n    \"_id\": \"5f591c30682b993bb1427d0e\",\n    \"name\": \"Advert Number 8\",\n    \"onSale\": true,\n    \"cost\": 800,\n    \"imagePath\": \"d1d50271-4b0a-4909-8a9f-b5ad48998d38.png\",\n    \"__v\": 0\n  }\n]\n```"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Ad with JSON",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\n      \"name\": \"test1\",\n      \"onSale\": true,\n      \"cost\": 707,\n      \"imagePath\": \"d1d50271-4b0a-4909-8a9f-b5ad48998d38.png\",\n      \"tags\": [\"tecnology\", \"lifestyle\"]\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/ads",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"ads"
+					]
+				},
+				"description": "It's not posible use because imagePath is a file."
+			},
+			"response": []
+		},
+		{
+			"name": "Post change notOnSale",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/ads/5f5912fbb1828432bd7a162f/notOnSale?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYTI4YmIzMmIzMWUzNjgzOWM1YWNhNyIsImlhdCI6MTYwNDQ5MzI0MiwiZXhwIjoxNjA2MjIxMjQyfQ.AISxX7HBUUMvHsinkieNv37TWuF0e76iblOHIgbCYas",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"ads",
+						"5f5912fbb1828432bd7a162f",
+						"notOnSale"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYTI4YmIzMmIzMWUzNjgzOWM1YWNhNyIsImlhdCI6MTYwNDQ5MzI0MiwiZXhwIjoxNjA2MjIxMjQyfQ.AISxX7HBUUMvHsinkieNv37TWuF0e76iblOHIgbCYas"
+						}
+					]
+				},
+				"description": "Post change notOnSale"
+			},
+			"response": []
+		},
+		{
+			"name": "Post change yesOnSale",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/ads/5f5912fbb1828432bd7a162f/yesOnSale?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYTI4YmIzMmIzMWUzNjgzOWM1YWNhNyIsImlhdCI6MTYwNDQ5MzI0MiwiZXhwIjoxNjA2MjIxMjQyfQ.AISxX7HBUUMvHsinkieNv37TWuF0e76iblOHIgbCYas",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"ads",
+						"5f5912fbb1828432bd7a162f",
+						"yesOnSale"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYTI4YmIzMmIzMWUzNjgzOWM1YWNhNyIsImlhdCI6MTYwNDQ5MzI0MiwiZXhwIjoxNjA2MjIxMjQyfQ.AISxX7HBUUMvHsinkieNv37TWuF0e76iblOHIgbCYas"
+						}
+					]
+				},
+				"description": "Post change yesOnSale"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Signup User on private zone Postman",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\":\"user1@user.com\",\n    \"password\":\"123\"\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/signup",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Signin login existing user on private zone Postman",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\":\"user@user.com\",\n    \"password\":\"123\"\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/signin",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"signin"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
