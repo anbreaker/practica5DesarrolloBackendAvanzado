@@ -8,7 +8,7 @@ const resizeImage = async () => {
   await image.quality(60).resize(75, jimp.AUTO);
 
   // Save and overwrite the image
-  await image.writeAsync('../public/z.png');
+  await image.writeAsync('../public/.png');
 };
 
 resizeImage();

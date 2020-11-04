@@ -51,6 +51,13 @@ router.post(
       const newAdvert = new Advert({name, onSale, cost, imagePath, tags});
 
       const advert = await newAdvert.save();
+
+      // Config params requester
+      const originPathImg = path.join(
+        __dirname,
+        '../../public/uploads',
+        advert.imagePath
+      );
       const destinationPathImgResize = path.join(
         __dirname,
         '../../public/uploads/thumbnails',
@@ -58,11 +65,7 @@ router.post(
       );
 
       // Send "Events / messages" to microservice
-      requester.send({
-        type: 'resizeImg',
-        originPathImg: path.join(__dirname, '../../public/uploads', advert.imagePath),
-        destinationPathImgResize,
-      });
+      requester.send({type: 'resizeImg', originPathImg, destinationPathImgResize});
 
       // updateDatabase
       // advert.thumbnail = advert.imagePath;

@@ -66,7 +66,7 @@ npm run micro
 
 ## Postman Model
 
-- Postman: https://www.getpostman.com/collections/60f54fb4d346d7f4ebc0
+- Postman: https://www.postman.com/collections/60f54fb4d346d7f4ebc0
 
 ## Api Documentation with Postman
 
