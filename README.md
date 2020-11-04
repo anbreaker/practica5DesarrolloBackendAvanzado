@@ -64,6 +64,11 @@ npm run start
 npm run micro
 ```
 
+## Init NodeApi and serviceThumbnailCreator.js with PM2
+```sh
+pm2 start ecosystem.config.js
+```
+
 ## Postman Model
 
 - Postman: https://www.postman.com/collections/60f54fb4d346d7f4ebc0
