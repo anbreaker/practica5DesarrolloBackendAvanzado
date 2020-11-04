@@ -1,72 +1,573 @@
 openapi: 3.0.0
 info:
-  title: Nodepopº
+  title: NodePopJWT
+  contact: {}
   version: '1.0'
 servers:
-  - url: 'http://localhost:3000'
+- url: http://127.0.0.1:3000/api
+  variables: {}
 paths:
-  /api/ads/:
+  /ads/5f5912fbb1828432bd7a162f:
     get:
-      summary: Your GET endpoint
-      tags: []
-      responses: {}
-      operationId: get-api-add
-      description: Get List of Ads
-    parameters: []
-    post:
-      summary: ''
-      operationId: post-api-ads
+      tags:
+      - Misc
+      summary: Get all Ads
+      description: >-
+        Get all the ads from the database.
+
+
+        Returns:
+
+
+        ```json
+
+        [
+          {
+            "tags": ["technology", "developer", "work"],
+            "_id": "5f5912fbb1828432bd7a162f",
+            "name": "Vant Pc ultraMOOVE-s",
+            "onSale": true,
+            "cost": 789,
+            "imagePath": "vant.png",
+            "__v": 0
+          },
+          {
+            "tags": ["technology", "lifestyle"],
+            "_id": "5f5912fbb1828432bd7a1630",
+            "name": "OnePlus 8",
+            "onSale": false,
+            "cost": 425,
+            "imagePath": "oneplus.png",
+            "__v": 0
+          },
+          {
+            "tags": ["technology", "lifestyle"],
+            "_id": "5f5912fbb1828432bd7a1631",
+            "name": "Nikon D610",
+            "onSale": true,
+            "cost": 707,
+            "imagePath": "nikon.png",
+            "__v": 0
+          },
+          {
+            "tags": ["work", "developer"],
+            "_id": "5f5917f2aa4d152eb763077a",
+            "name": "Advert Number 4",
+            "onSale": true,
+            "cost": 400,
+            "imagePath": "d1d50271-4b0a-4909-8a9f-b5ad48998d38.png",
+            "__v": 0
+          },
+          {
+            "tags": ["lifestyle", "technology"],
+            "_id": "5f591c30482b993bb1327d0e",
+            "name": "Advert Number 5",
+            "onSale": false,
+            "cost": 500,
+            "imagePath": "d1d50271-4b0a-4909-8a9f-b5ad48998d38.png",
+            "__v": 0
+          },
+          {
+            "tags": ["lifestyle"],
+            "_id": "5f591c30682b993bb1327d0e",
+            "name": "Advert Number 6",
+            "onSale": true,
+            "cost": 600,
+            "imagePath": "d1d50271-4b0a-4909-8a9f-b5ad48998d38.png",
+            "__v": 0
+          },
+          {
+            "tags": ["work", "technology"],
+            "_id": "5f591c30682c993bb1327d0e",
+            "name": "Advert Number 7",
+            "onSale": false,
+            "cost": 700,
+            "imagePath": "d1d50271-4b0a-4909-8a9f-b5ad48998d38.png",
+            "__v": 0
+          },
+          {
+            "tags": ["developer"],
+            "_id": "5f591c30682b993bb1427d0e",
+            "name": "Advert Number 8",
+            "onSale": true,
+            "cost": 800,
+            "imagePath": "d1d50271-4b0a-4909-8a9f-b5ad48998d38.png",
+            "__v": 0
+          }
+        ]
+
+        ```
+      operationId: GetallAds
+      parameters:
+      - name: token
+        in: query
+        description: ''
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+          example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYTI4YmIzMmIzMWUzNjgzOWM1YWNhNyIsImlhdCI6MTYwNDQ5MzI0MiwiZXhwIjoxNjA2MjIxMjQyfQ.AISxX7HBUUMvHsinkieNv37TWuF0e76iblOHIgbCYas
+      - name: Content-Type
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: application/json
+      - name: Accept
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: application/json
       responses:
-        '201':
-          description: Created
-          content:
-            multipart/form-data:
-              schema:
-                $ref: '#/components/schemas/ad'
-      description: Create an ad
+        200:
+          description: ''
+          headers: {}
+      deprecated: false
+  /ads:
+    post:
+      tags:
+      - Misc
+      summary: Create Ad with form-data
+      description: >-
+        ## Create Ad with form-data
+
+
+        - Returns:
+
+
+        ```json
+
+        {
+          "tags": ["work", "developer"],
+          "_id": "5f5caf28950a2567a632462b",
+          "name": "test Imagen",
+          "onSale": true,
+          "cost": 123,
+          "imagePath": "6ccc1b6d-90ae-476c-acd6-be5283f54a9b.jpg",
+          "__v": 0
+        }
+
+        ```
+      operationId: CreateAdwithform-data
+      parameters:
+      - name: token
+        in: query
+        description: ''
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+          example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYTI4YmIzMmIzMWUzNjgzOWM1YWNhNyIsImlhdCI6MTYwNDQ5MzI0MiwiZXhwIjoxNjA2MjIxMjQyfQ.AISxX7HBUUMvHsinkieNv37TWuF0e76iblOHIgbCYas
       requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            encoding: {}
+            schema:
+              required:
+              - name
+              - onSale
+              - cost
+              - image
+              - tags
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: test Imagen
+                onSale:
+                  type: boolean
+                  example: true
+                cost:
+                  type: integer
+                  format: int32
+                  example: 123
+                image:
+                  type: string
+                tags:
+                  type: string
+                  example: work
+        required: false
+      responses:
+        200:
+          description: ''
+          headers: {}
+      deprecated: false
+    get:
+      tags:
+      - Misc
+      summary: Get Ads by Filters
+      description: >-
+        ## Get ad by filters an params
+
+
+        - Return with this params:
+          - tags: technology,
+          - cost: 700-,
+          - name: Ad
+
+        ```json
+
+        [
+          {
+            "tags": ["work", "technology"],
+            "_id": "5f591c30682c993bb1327d0e",
+            "name": "Advert Number 7",
+            "onSale": false,
+            "cost": 700,
+            "imagePath": "d1d50271-4b0a-4909-8a9f-b5ad48998d38.png",
+            "__v": 0
+          }
+        ]
+
+        ```
+
+
+        ### Other example:
+
+
+        - Return with this params:
+          - tags: lifestyle,
+          - onSale: true,
+
+        ```json
+
+        [
+          {
+            "tags": ["technology", "lifestyle"],
+            "_id": "5f5912fbb1828432bd7a1631",
+            "name": "Nikon D610",
+            "onSale": true,
+            "cost": 707,
+            "imagePath": "nikon.png",
+            "__v": 0
+          },
+          {
+            "tags": ["lifestyle"],
+            "_id": "5f591c30682b993bb1327d0e",
+            "name": "Advert Number 6",
+            "onSale": true,
+            "cost": 600,
+            "imagePath": "d1d50271-4b0a-4909-8a9f-b5ad48998d38.png",
+            "__v": 0
+          }
+        ]
+
+        ```
+      operationId: GetAdsbyFilters
+      parameters:
+      - name: tags
+        in: query
+        description: ''
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+          example: technology
+      - name: cost
+        in: query
+        description: ''
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+          example: 700-
+      - name: name
+        in: query
+        description: ''
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+          example: Ad
+      - name: token
+        in: query
+        description: ''
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+          example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYTI4YmIzMmIzMWUzNjgzOWM1YWNhNyIsImlhdCI6MTYwNDQ5MzI0MiwiZXhwIjoxNjA2MjIxMjQyfQ.AISxX7HBUUMvHsinkieNv37TWuF0e76iblOHIgbCYas
+      - name: Content-Type
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: application/json
+      - name: Accept
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: application/json
+      responses:
+        200:
+          description: ''
+          headers: {}
+      deprecated: false
+  /ads/5fa2671ee10d5e37b06cc18e:
+    delete:
+      tags:
+      - Misc
+      summary: Delete Ad
+      description: '## Delete an ad using its id'
+      operationId: DeleteAd
+      parameters:
+      - name: token
+        in: query
+        description: ''
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+          example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYTI4YmIzMmIzMWUzNjgzOWM1YWNhNyIsImlhdCI6MTYwNDQ5MzI0MiwiZXhwIjoxNjA2MjIxMjQyfQ.AISxX7HBUUMvHsinkieNv37TWuF0e76iblOHIgbCYas
+      responses:
+        200:
+          description: ''
+          headers: {}
+      deprecated: false
+  /ads/5f5912fbb1828432bd7a1630:
+    patch:
+      tags:
+      - Misc
+      summary: Update Ad
+      description: >-
+        ## Update an ad according to the parameters that we pass it after locating it by its id
+
+
+        - Return
+
+
+        ```json
+
+        {
+          "tags": ["technology", "lifestyle"],
+          "_id": "5f5912fbb1828432bd7a1630",
+          "name": "test",
+          "onSale": false,
+          "cost": 214,
+          "imagePath": "oneplus.png",
+          "__v": 0
+        }
+
+        ```
+      operationId: UpdateAd
+      parameters:
+      - name: name
+        in: query
+        description: ''
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+          example: test
+      - name: onsale
+        in: query
+        description: ''
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: boolean
+          example: true
+      - name: token
+        in: query
+        description: ''
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+          example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYTI4YmIzMmIzMWUzNjgzOWM1YWNhNyIsImlhdCI6MTYwNDQ5MzI0MiwiZXhwIjoxNjA2MjIxMjQyfQ.AISxX7HBUUMvHsinkieNv37TWuF0e76iblOHIgbCYas
+      requestBody:
+        description: ''
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ad'
-    patch:
-      summary: Upload Ad
-      operationId: patch-api-ads
-      responses:
-        '201':
-          description: Created
-      parameters: []
-      description: Updload ad by _id.
-  '/api/ads/{id}':
-    parameters:
-      - schema:
-          type: string
-        name: id
-        in: path
+              $ref: '#/components/schemas/UpdateAdRequest'
+            example:
+              name: test
+              onSale: false
+              cost: 214
         required: true
+      responses:
+        200:
+          description: ''
+          headers: {}
+      deprecated: false
     get:
-      summary: Your GET endpoint
-      tags: []
+      tags:
+      - Misc
+      summary: Get Ad by :_id
+      description: >-
+        ## Get ad by :id (5f5912fbb1828432bd7a1630)
+
+
+        - Return of this id: (5f5912fbb1828432bd7a1630)
+
+
+        ```json
+
+        {
+          "tags": ["technology", "lifestyle"],
+          "_id": "5f5912fbb1828432bd7a1630",
+          "name": "test",
+          "onSale": false,
+          "cost": 214,
+          "imagePath": "oneplus.png",
+          "__v": 0
+        }
+
+        ```
+      operationId: GetAdby:_id
+      parameters:
+      - name: token
+        in: query
+        description: ''
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+          example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYTI4YmIzMmIzMWUzNjgzOWM1YWNhNyIsImlhdCI6MTYwNDQ5MzI0MiwiZXhwIjoxNjA2MjIxMjQyfQ.AISxX7HBUUMvHsinkieNv37TWuF0e76iblOHIgbCYas
       responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ad'
-      operationId: get-api-ads-id
-      description: Get an ad by with identifier (_id)
-    delete:
-      summary: ''
-      operationId: delete-api-ads-id
+        200:
+          description: ''
+          headers: {}
+      deprecated: false
+  /ads/5f5912fbb1828432bd7a162f/notOnSale:
+    post:
+      tags:
+      - Misc
+      summary: Post change notOnSale
+      description: Post change notOnSale
+      operationId: PostchangenotOnSale
+      parameters:
+      - name: token
+        in: query
+        description: ''
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+          example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYTI4YmIzMmIzMWUzNjgzOWM1YWNhNyIsImlhdCI6MTYwNDQ5MzI0MiwiZXhwIjoxNjA2MjIxMjQyfQ.AISxX7HBUUMvHsinkieNv37TWuF0e76iblOHIgbCYas
       responses:
-        '204':
-          description: No Content
-      description: Delete an ad with the identifier
+        200:
+          description: ''
+          headers: {}
+      deprecated: false
+  /ads/5f5912fbb1828432bd7a162f/yesOnSale:
+    post:
+      tags:
+      - Misc
+      summary: Post change yesOnSale
+      description: Post change yesOnSale
+      operationId: PostchangeyesOnSale
+      parameters:
+      - name: token
+        in: query
+        description: ''
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+          example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYTI4YmIzMmIzMWUzNjgzOWM1YWNhNyIsImlhdCI6MTYwNDQ5MzI0MiwiZXhwIjoxNjA2MjIxMjQyfQ.AISxX7HBUUMvHsinkieNv37TWuF0e76iblOHIgbCYas
+      responses:
+        200:
+          description: ''
+          headers: {}
+      deprecated: false
+  /signup:
+    post:
+      tags:
+      - Misc
+      summary: Get Signup User on private zone Postman
+      operationId: GetSignupUseronprivatezonePostman
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GetSignupUseronprivatezonePostmanRequest'
+            example:
+              email: user1@user.com
+              password: 123
+        required: true
+      responses:
+        200:
+          description: ''
+          headers: {}
+      deprecated: false
+  /signin:
+    post:
+      tags:
+      - Misc
+      summary: Get Signin login existing user on private zone Postman
+      operationId: GetSigninloginexistinguseronprivatezonePostman
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GetSigninloginexistinguseronprivatezonePostmanRequest'
+            example:
+              email: user@user.com
+              password: 123
+        required: true
+      responses:
+        200:
+          description: ''
+          headers: {}
+      deprecated: false
 components:
   schemas:
-    ad:
-      title: ad
+    UpdateAdRequest:
+      title: UpdateAdRequest
+      required:
+      - name
+      - onSale
+      - cost
+      type: object
+      properties:
+        name:
+          type: string
+        onSale:
+          type: string
+        cost:
+          type: integer
+          format: int32
+      example:
+        name: test
+        onSale: false
+        cost: 214
+    CreateAdwithJSONRequest:
+      title: CreateAdwithJSONRequest
+      required:
+      - name
+      - onSale
+      - cost
+      - imagePath
+      - tags
       type: object
       properties:
         name:
@@ -74,19 +575,51 @@ components:
         onSale:
           type: boolean
         cost:
-          type: number
+          type: integer
+          format: int32
         imagePath:
           type: string
         tags:
           type: array
           items:
             type: string
-        _id:
-          type: string
-          readOnly: true
+          description: ''
+      example:
+        name: test1
+        onSale: true
+        cost: 707
+        imagePath: d1d50271-4b0a-4909-8a9f-b5ad48998d38.png
+        tags:
+        - tecnology
+        - lifestyle
+    GetSignupUseronprivatezonePostmanRequest:
+      title: GetSignupUseronprivatezonePostmanRequest
       required:
-        - name
-        - onSale
-        - cost
-        - imagePath
-      x-examples: {}
+      - email
+      - password
+      type: object
+      properties:
+        email:
+          type: string
+        password:
+          type: string
+      example:
+        email: user1@user.com
+        password: 123
+    GetSigninloginexistinguseronprivatezonePostmanRequest:
+      title: GetSigninloginexistinguseronprivatezonePostmanRequest
+      required:
+      - email
+      - password
+      type: object
+      properties:
+        email:
+          type: string
+        password:
+          type: string
+      example:
+        email: user@user.com
+        password: 123
+tags:
+- name: Misc
+  description: ''
