@@ -22,23 +22,23 @@
 git clone https://github.com/anbreaker/practica5DesarrolloBackendAvanzado.git
 ```
 
-## Install all dependencies src
+## Install all dependencies src 💾
 
 ```sh
 npm install
 ```
 
-## Microservice install dependencies services
+## Microservice install dependencies services 🔧
 
 ```
 /services npm install
 ```
 
-## To environment variables .env see Example, (and created this file '.env'):
+## To environment variables .env see Example, (and created this file '.env') 🤐
 
 - Copy DotEnvExample to .env and review the settings.
 
-## To start a initial DataBase:
+## To start a initial DataBase 🏁
 
 ```sh
 npm run initDB
@@ -46,34 +46,34 @@ npm run initDB
 
 - **Warning! this script delete database contents before the load. -->(Option 'y / n' (yes/no))**
 
-## To use mode development
+## To use mode development ⌨️
 
 ```sh
 npm run dev
 ```
 
-## To deploy on a server (first terminal)
+## To deploy on a server (first terminal) 🔨
 
 ```sh
 npm run start
 ```
 
-## Init microservices to generate Thumbnail (second terminal)
+## Init microservices to generate Thumbnail (second terminal) ⚙️
 
 ```sh
 npm run micro
 ```
 
-## Init NodeApi and serviceThumbnailCreator.js with PM2
+## Init NodeApi and serviceThumbnailCreator.js with PM2 🚀
 ```sh
 pm2 start ecosystem.config.js
 ```
 
-## Postman Model
+## Postman Model 📯
 
 - Postman: https://www.postman.com/collections/60f54fb4d346d7f4ebc0
 
-## Api Documentation with Postman
+## Api Documentation with Postman 📨
 
 - Postman API DOCs: - https://documenter.getpostman.com/view/12623471/TVCjvk79
 
