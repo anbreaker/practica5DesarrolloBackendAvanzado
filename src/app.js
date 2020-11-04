@@ -8,15 +8,15 @@ const cookieParser = require('cookie-parser');
 const loginControllerWeb = require('./routes/loginControllerWeb');
 const loginControllerPostman = require('./routes/loginControllerPostman');
 const privateController = require('./routes/privateController');
-const sessionAuthMiddleware = require('./lib/sessionAuthMiddleware');
+const sessionAuthMiddleware = require('./middlewares/sessionAuthMiddleware');
 const sessionMongoConfigure = require('./lib/sessionMongoConfigure');
-const jwtAuthVerifyToken = require('./lib/jwtAuthVerifyToken');
+const jwtAuthVerifyToken = require('./middlewares/jwtAuthVerifyToken');
 
 // Initializations
 const app = express();
 
 // Connect to Database
-const mongoConnection = require('./lib/connectMongooseDB');
+const mongoConnection = require('./middlewares/connectMongooseDB');
 
 // Setup i18n
 const i18n = require('./lib/i18nConfigure');
@@ -89,8 +89,8 @@ app.get(
 // Private zone
 app.get('/nodepop-private', sessionAuthMiddleware(), privateController.getPrivate);
 
-app.use(require('./lib/handlerError').notFound);
-app.use(require('./lib/handlerError').InternalServerError);
+app.use(require('./middlewares/handlerError').notFound);
+app.use(require('./middlewares/handlerError').InternalServerError);
 
 // Start the server on './index.js'
 

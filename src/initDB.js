@@ -3,7 +3,7 @@
 require('dotenv').config();
 
 const readline = require('readline');
-const conn = require('./lib/connectMongooseDB');
+const conn = require('./middlewares/connectMongooseDB');
 const Advert = require('./models/Advert');
 const User = require('./models/User');
 const fs = require('fs-extra'); //fs with Promise implement

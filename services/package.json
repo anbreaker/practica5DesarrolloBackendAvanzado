@@ -1,10 +1,10 @@
 {
-  "name": "services",
+  "name": "Services_Thumbnail_Creator",
   "version": "1.0.0",
   "description": "",
   "main": "resizeImg.js",
   "scripts": {
-    "micro": "node services/service.js"
+    "micro": "node services/serviceThumbnailCreator.js"
   },
   "keywords": [],
   "author": "",
