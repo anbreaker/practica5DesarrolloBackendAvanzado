@@ -7,6 +7,7 @@
     "dev": "NODE_ENV=development nodemon src/index.js",
     "start": "NODE_ENV=production node src/index.js",
     "initDB": "node src/initDB.js",
+    "micro": "node services/service.js",
     "ngrok": "ngrok http -region=eu 3000",
     "docs": "widdershins --search false --language_tabs 'javascript:javascript' --summary adsApi.yaml -o docs.md"
   },

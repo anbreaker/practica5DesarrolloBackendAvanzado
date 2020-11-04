@@ -4,7 +4,7 @@
   "description": "",
   "main": "resizeImg.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "micro": "node services/service.js"
   },
   "keywords": [],
   "author": "",
