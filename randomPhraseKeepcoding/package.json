@@ -1,0 +1,28 @@
+{
+  "name": "random-phrase-keepcoding",
+  "version": "1.1.1",
+  "description": "Describir...",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "anbreaker",
+  "license": "ISC",
+  "bin": {
+    "phrase-keepcoding": "bin/global.js"
+  },
+  "preferGlobal": true,
+  "dependencies": {
+    "node-fetch": "^2.6.1"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anbreaker/practica5Optional_phraseRandomKeepCoding.git"
+  },
+  "bugs": {
+    "url": "https://github.com/anbreaker/practica5Optional_phraseRandomKeepCoding/issues"
+  },
+  "homepage": "https://github.com/anbreaker/practica5Optional_phraseRandomKeepCoding#readme"
+}
