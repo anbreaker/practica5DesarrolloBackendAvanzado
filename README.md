@@ -12,9 +12,16 @@
   </a>
 </p>
 
-> Develop the API that will run on the server of an article sales service.
+### 📦 [random-phrase-keepcoding (package NPM)](https://www.npmjs.com/package/random-phrase-keepcoding)
+
+> This project returns a random phrase, described in the github repository of all Keepcoders.
+
+- npmjs repo: https://www.npmjs.com/package/random-phrase-keepcoding
+- github repo: https://github.com/anbreaker/practica5Optional_phraseRandomKeepCoding
 
 ### 🏠 [Homepage](https://github.com/anbreaker/practica5DesarrolloBackendAvanzado#readme)
+
+> Develop the API that will run on the server of an article sales service.
 
 ## Clone Repo 👨🏻‍💻
 
@@ -65,6 +72,7 @@ npm run micro
 ```
 
 ## Init NodeApi and serviceThumbnailCreator.js with PM2 🚀
+
 ```sh
 pm2 start ecosystem.config.js
 ```
