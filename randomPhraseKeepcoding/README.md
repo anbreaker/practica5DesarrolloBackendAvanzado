@@ -21,7 +21,7 @@
 ## Install
 
 ```sh
-npm install -g phrase-keepcoding
+npm install -g random-phrase-keepcoding
 ```
 
 ## Usage
